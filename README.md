@@ -7,8 +7,6 @@
 [![TypeScript Version](https://img.shields.io/badge/typescript-^5.7.3-blue.svg)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/license-UNLICENSED-lightgrey.svg)](./LICENSE)
 
-![UMO Logo](./assets/logo/umo-logo.png)
-
 ![UMO Face](./assets/character/umo-face2.png)
 
 > **비 오는 날, 우산은 우모가 챙길게.**
