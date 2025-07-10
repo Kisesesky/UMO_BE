@@ -1,0 +1,690 @@
+[
+  {
+    "stationName": "양산(시청)",
+    "lines": ["2호선"],
+    "address": "경상남도 양산시 중부동 687-1",
+    "latitude": 35.338683,
+    "longitude": 129.037563,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.338683,
+        "longitude": 129.037563,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "남양산(범어)",
+    "lines": ["2호선"],
+    "address": "경상남도 양산시 중부동 687-1",
+    "latitude": 35.335683,
+    "longitude": 129.047563,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.335683,
+        "longitude": 129.047563,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "부산대양산캠퍼스",
+    "lines": ["2호선"],
+    "address": "경상남도 양산시 물금읍 범어리 2765",
+    "latitude": 35.331683,
+    "longitude": 129.057563,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.331683,
+        "longitude": 129.057563,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "증산",
+    "lines": ["2호선"],
+    "address": "경상남도 양산시 물금읍 증산리 1225",
+    "latitude": 35.326997,
+    "longitude": 129.062689,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.326997,
+        "longitude": 129.062689,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "호포",
+    "lines": ["2호선"],
+    "address": "부산광역시 기장군 철마면 장전리 1326-1",
+    "latitude": 35.321583,
+    "longitude": 129.094322,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.321583,
+        "longitude": 129.094322,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "금곡",
+    "lines": ["2호선"],
+    "address": "부산광역시 북구 금곡동 1294",
+    "latitude": 35.312155,
+    "longitude": 129.092462,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.312155,
+        "longitude": 129.092462,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동원",
+    "lines": ["2호선"],
+    "address": "부산광역시 북구 동원동 123-1",
+    "latitude": 35.307500,
+    "longitude": 129.092000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.307500,
+        "longitude": 129.092000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "율리",
+    "lines": ["2호선"],
+    "address": "부산광역시 북구 율리동 123-1",
+    "latitude": 35.302000,
+    "longitude": 129.090000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.302000,
+        "longitude": 129.090000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "화명",
+    "lines": ["2호선"],
+    "address": "부산광역시 북구 화명동 2273",
+    "latitude": 35.309393,
+    "longitude": 129.079431,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.309393,
+        "longitude": 129.079431,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "수정",
+    "lines": ["2호선"],
+    "address": "부산광역시 북구 화명동 2273",
+    "latitude": 35.306090,
+    "longitude": 129.064225,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.306090,
+        "longitude": 129.064225,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "덕천",
+    "lines": ["2호선"],
+    "address": "부산광역시 북구 덕천동 401-1",
+    "latitude": 35.210809,
+    "longitude": 129.036127,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.210809,
+        "longitude": 129.036127,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "구명",
+    "lines": ["2호선"],
+    "address": "부산광역시 북구 구명동 32-2",
+    "latitude": 35.206590,
+    "longitude": 129.012328,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.206590,
+        "longitude": 129.012328,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "구남",
+    "lines": ["2호선"],
+    "address": "부산광역시 북구 구포동 1223-1",
+    "latitude": 35.205026,
+    "longitude": 129.000953,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.205026,
+        "longitude": 129.000953,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "모라",
+    "lines": ["2호선"],
+    "address": "부산광역시 사상구 모라동 1258-1",
+    "latitude": 35.193579,
+    "longitude": 128.990506,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.193579,
+        "longitude": 128.990506,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "모덕",
+    "lines": ["2호선"],
+    "address": "부산광역시 사상구 모라동 1258-1",
+    "latitude": 35.187342,
+    "longitude": 128.980617,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.187342,
+        "longitude": 128.980617,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "덕포",
+    "lines": ["2호선"],
+    "address": "부산광역시 사상구 덕포동 415-1",
+    "latitude": 35.189000,
+    "longitude": 128.995000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.189000,
+        "longitude": 128.995000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "사상",
+    "lines": ["2호선"],
+    "address": "부산광역시 사상구 괘법동 531-2",
+    "latitude": 35.163218,
+    "longitude": 128.985575,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.163218,
+        "longitude": 128.985575,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "감전",
+    "lines": ["2호선"],
+    "address": "부산광역시 사상구 감전동 123-1",
+    "latitude": 35.153000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.153000,
+        "longitude": 128.980000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "주례",
+    "lines": ["2호선"],
+    "address": "부산광역시 사상구 주례동 123-1",
+    "latitude": 35.145000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.145000,
+        "longitude": 128.980000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "냉정",
+    "lines": ["2호선"],
+    "address": "부산광역시 사상구 냉정동 123-1",
+    "latitude": 35.140000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.140000,
+        "longitude": 128.980000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "개금",
+    "lines": ["2호선"],
+    "address": "부산광역시 부산진구 개금동 123-1",
+    "latitude": 35.135000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.135000,
+        "longitude": 128.980000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동의대",
+    "lines": ["2호선"],
+    "address": "부산광역시 부산진구 가야동 123-1",
+    "latitude": 35.130000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.130000,
+        "longitude": 128.980000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "가야",
+    "lines": ["2호선"],
+    "address": "부산광역시 부산진구 가야동 123-1",
+    "latitude": 35.125000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.125000,
+        "longitude": 128.980000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "부암",
+    "lines": ["2호선"],
+    "address": "부산광역시 부산진구 부암동 123-1",
+    "latitude": 35.120000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.120000,
+        "longitude": 128.980000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "서면",
+    "lines": ["2호선"],
+    "address": "부산광역시 부산진구 부전동 516-34",
+    "latitude": 35.157617,
+    "longitude": 129.059512,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.157617,
+        "longitude": 129.059512,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "전포",
+    "lines": ["2호선"],
+    "address": "부산광역시 부산진구 전포동 123-1",
+    "latitude": 35.115000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.115000,
+        "longitude": 128.980000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "국제금융센터·부산은행",
+    "lines": ["2호선"],
+    "address": "부산광역시 남구 문현동 123-1",
+    "latitude": 35.144000,
+    "longitude": 129.064000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.144000,
+        "longitude": 129.064000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "문현",
+    "lines": ["2호선"],
+    "address": "부산광역시 남구 문현동 123-1",
+    "latitude": 35.145000,
+    "longitude": 129.065000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.145000,
+        "longitude": 129.065000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "지게골",
+    "lines": ["2호선"],
+    "address": "부산광역시 남구 문현동 123-1",
+    "latitude": 35.146000,
+    "longitude": 129.066000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.146000,
+        "longitude": 129.066000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "못골",
+    "lines": ["2호선"],
+    "address": "부산광역시 남구 못골동 123-1",
+    "latitude": 35.147000,
+    "longitude": 129.067000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.147000,
+        "longitude": 129.067000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "대연",
+    "lines": ["2호선"],
+    "address": "부산광역시 남구 대연동 123-1",
+    "latitude": 35.148000,
+    "longitude": 129.068000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.148000,
+        "longitude": 129.068000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "경성대·부경대",
+    "lines": ["2호선"],
+    "address": "부산광역시 남구 대연동 123-1",
+    "latitude": 35.149000,
+    "longitude": 129.069000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.149000,
+        "longitude": 129.069000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "남천",
+    "lines": ["2호선"],
+    "address": "부산광역시 수영구 남천동 123-1",
+    "latitude": 35.150000,
+    "longitude": 129.070000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.150000,
+        "longitude": 129.070000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "금련산",
+    "lines": ["2호선"],
+    "address": "부산광역시 수영구 남천동 123-1",
+    "latitude": 35.151000,
+    "longitude": 129.071000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.151000,
+        "longitude": 129.071000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "광안",
+    "lines": ["2호선"],
+    "address": "부산광역시 수영구 광안동 123-1",
+    "latitude": 35.152000,
+    "longitude": 129.072000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.152000,
+        "longitude": 129.072000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "수영",
+    "lines": ["2호선"],
+    "address": "부산광역시 수영구 수영동 437-1",
+    "latitude": 35.145563,
+    "longitude": 129.113746,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.145563,
+        "longitude": 129.113746,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "민락",
+    "lines": ["2호선"],
+    "address": "부산광역시 수영구 민락동 123-1",
+    "latitude": 35.154000,
+    "longitude": 129.074000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.154000,
+        "longitude": 129.074000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "센텀시티",
+    "lines": ["2호선"],
+    "address": "부산광역시 해운대구 우동 1495",
+    "latitude": 35.168427,
+    "longitude": 129.130445,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.168427,
+        "longitude": 129.130445,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "벡스코",
+    "lines": ["2호선"],
+    "address": "부산광역시 해운대구 우동 1495",
+    "latitude": 35.169000,
+    "longitude": 129.132000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.169000,
+        "longitude": 129.132000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동백",
+    "lines": ["2호선"],
+    "address": "부산광역시 해운대구 우동 1495",
+    "latitude": 35.170000,
+    "longitude": 129.134000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.170000,
+        "longitude": 129.134000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "해운대",
+    "lines": ["2호선"],
+    "address": "부산광역시 해운대구 우동 1495",
+    "latitude": 35.170945,
+    "longitude": 129.176124,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.170945,
+        "longitude": 129.176124,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "중동",
+    "lines": ["2호선"],
+    "address": "부산광역시 해운대구 중동 123-1",
+    "latitude": 35.171000,
+    "longitude": 129.178000,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.171000,
+        "longitude": 129.178000,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "장산",
+    "lines": ["2호선"],
+    "address": "부산광역시 해운대구 좌동 1460",
+    "latitude": 35.170945,
+    "longitude": 129.176124,
+    "stations": [
+      {
+        "line": "2호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.170945,
+        "longitude": 129.176124,
+        "description": "2호선 1번 출구 앞 스테이션"
+      }
+    ]
+  }
+]

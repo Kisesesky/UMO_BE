@@ -1,0 +1,226 @@
+[
+  {
+    "stationName": "미남",
+    "lines": ["4호선"],
+    "address": "부산광역시 동래구 온천동 1470",
+    "latitude": 35.2070982,
+    "longitude": 129.0691677,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2070982,
+        "longitude": 129.0691677,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동래",
+    "lines": ["4호선"],
+    "address": "부산광역시 동래구 낙민동 130-4",
+    "latitude": 35.2047979,
+    "longitude": 129.0771395,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2047979,
+        "longitude": 129.0771395,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "수안",
+    "lines": ["4호선"],
+    "address": "부산광역시 동래구 수안동 204-2",
+    "latitude": 35.201771,
+    "longitude": 129.0838796,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.201771,
+        "longitude": 129.0838796,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "낙민",
+    "lines": ["4호선"],
+    "address": "부산광역시 동래구 낙민동 205-4",
+    "latitude": 35.2001953,
+    "longitude": 129.0909072,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2001953,
+        "longitude": 129.0909072,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "충렬사",
+    "lines": ["4호선"],
+    "address": "부산광역시 동래구 안락동 473",
+    "latitude": 35.1998624,
+    "longitude": 129.0976121,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.1998624,
+        "longitude": 129.0976121,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "명장",
+    "lines": ["4호선"],
+    "address": "부산광역시 동래구 명장동 184",
+    "latitude": 35.2051807,
+    "longitude": 129.1017177,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2051807,
+        "longitude": 129.1017177,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "서동",
+    "lines": ["4호선"],
+    "address": "부산광역시 금정구 서동 241",
+    "latitude": 35.2131611,
+    "longitude": 129.1075182,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2131611,
+        "longitude": 129.1075182,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "금사",
+    "lines": ["4호선"],
+    "address": "부산광역시 금정구 금사동 154-1",
+    "latitude": 35.2157853,
+    "longitude": 129.1151423,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2157853,
+        "longitude": 129.1151423,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "반여농산물시장",
+    "lines": ["4호선"],
+    "address": "부산광역시 해운대구 석대동 507-1",
+    "latitude": 35.2177299,
+    "longitude": 129.123993,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2177299,
+        "longitude": 129.123993,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "석대",
+    "lines": ["4호선"],
+    "address": "부산광역시 해운대구 석대동 574-14",
+    "latitude": 35.2181498,
+    "longitude": 129.1369934,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2181498,
+        "longitude": 129.1369934,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "영산대",
+    "lines": ["4호선"],
+    "address": "부산광역시 해운대구 반송동 698-12",
+    "latitude": 35.2256975,
+    "longitude": 129.1461755,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2256975,
+        "longitude": 129.1461755,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동부산대",
+    "lines": ["4호선"],
+    "address": "부산광역시 해운대구 반송동 698-12",
+    "latitude": 35.2256975,
+    "longitude": 129.1461755,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2256975,
+        "longitude": 129.1461755,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "고촌",
+    "lines": ["4호선"],
+    "address": "부산광역시 기장군 철마면 고촌리 518-2",
+    "latitude": 35.2360204,
+    "longitude": 129.1604421,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2360204,
+        "longitude": 129.1604421,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "안평",
+    "lines": ["4호선"],
+    "address": "부산광역시 기장군 철마면 안평리 543-23",
+    "latitude": 35.2373769,
+    "longitude": 129.1718077,
+    "stations": [
+      {
+        "line": "4호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2373769,
+        "longitude": 129.1718077,
+        "description": "4호선 1번 출구 앞 스테이션"
+      }
+    ]
+  }
+]

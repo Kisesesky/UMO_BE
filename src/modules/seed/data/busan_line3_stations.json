@@ -1,0 +1,194 @@
+[
+  {
+    "stationName": "수영",
+    "lines": ["3호선"],
+    "address": "부산광역시 수영구 수영동 437-1",
+    "latitude": 35.145563,
+    "longitude": 129.113746,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.145563,
+        "longitude": 129.113746,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "망미",
+    "lines": ["3호선"],
+    "address": "부산광역시 수영구 망미동 426-1",
+    "latitude": 35.157944,
+    "longitude": 129.118222,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.157944,
+        "longitude": 129.118222,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "배산",
+    "lines": ["3호선"],
+    "address": "부산광역시 연제구 연산동 1372-1",
+    "latitude": 35.168457,
+    "longitude": 129.089023,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.168457,
+        "longitude": 129.089023,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "물만골",
+    "lines": ["3호선"],
+    "address": "부산광역시 연제구 연산동 1372-1",
+    "latitude": 35.176343,
+    "longitude": 129.087899,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.176343,
+        "longitude": 129.087899,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "연산",
+    "lines": ["3호선"],
+    "address": "부산광역시 연제구 연산동 588-1",
+    "latitude": 35.186063,
+    "longitude": 129.081990,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.186063,
+        "longitude": 129.081990,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "거제",
+    "lines": ["3호선"],
+    "address": "부산광역시 연제구 거제동 1486",
+    "latitude": 35.187183,
+    "longitude": 129.079385,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.187183,
+        "longitude": 129.079385,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "미남",
+    "lines": ["3호선"],
+    "address": "부산광역시 동래구 온천동 1470",
+    "latitude": 35.2070982,
+    "longitude": 129.0691677,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.2070982,
+        "longitude": 129.0691677,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "만덕",
+    "lines": ["3호선"],
+    "address": "부산광역시 북구 만덕동 774-2",
+    "latitude": 35.211018,
+    "longitude": 129.033325,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.211018,
+        "longitude": 129.033325,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "덕천",
+    "lines": ["3호선"],
+    "address": "부산광역시 북구 덕천동 401-1",
+    "latitude": 35.210809,
+    "longitude": 129.036127,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.210809,
+        "longitude": 129.036127,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "구포",
+    "lines": ["3호선"],
+    "address": "부산광역시 북구 구포동 1223-1",
+    "latitude": 35.206884,
+    "longitude": 128.995464,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.206884,
+        "longitude": 128.995464,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "강서구청",
+    "lines": ["3호선"],
+    "address": "부산광역시 강서구 대저2동 2315-1",
+    "latitude": 35.212828,
+    "longitude": 128.980404,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.212828,
+        "longitude": 128.980404,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "대저",
+    "lines": ["3호선"],
+    "address": "부산광역시 강서구 대저2동 2315-1",
+    "latitude": 35.213589,
+    "longitude": 128.974179,
+    "stations": [
+      {
+        "line": "3호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.213589,
+        "longitude": 128.974179,
+        "description": "3호선 1번 출구 앞 스테이션"
+      }
+    ]
+  }
+]

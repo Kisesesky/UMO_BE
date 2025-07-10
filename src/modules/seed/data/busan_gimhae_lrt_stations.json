@@ -1,0 +1,322 @@
+[
+  {
+    "stationName": "사상",
+    "lines": ["부산김해경전철"],
+    "address": "부산광역시 사상구 괘법동 546-1",
+    "latitude": 35.163218,
+    "longitude": 128.985575,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.163218,
+        "longitude": 128.985575,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "괘법르네시떼",
+    "lines": ["부산김해경전철"],
+    "address": "부산광역시 사상구 괘법동 533-1",
+    "latitude": 35.165422,
+    "longitude": 128.990375,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.165422,
+        "longitude": 128.990375,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "감전",
+    "lines": ["부산김해경전철"],
+    "address": "부산광역시 사상구 감전동 123-1",
+    "latitude": 35.153000,
+    "longitude": 128.980000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.153000,
+        "longitude": 128.980000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "사상공단",
+    "lines": ["부산김해경전철"],
+    "address": "부산광역시 사상구 삼락동 453-1",
+    "latitude": 35.168140,
+    "longitude": 128.997780,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.168140,
+        "longitude": 128.997780,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "모라",
+    "lines": ["부산김해경전철"],
+    "address": "부산광역시 사상구 모라동 1258-1",
+    "latitude": 35.193579,
+    "longitude": 128.990506,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.193579,
+        "longitude": 128.990506,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "구명",
+    "lines": ["부산김해경전철"],
+    "address": "부산광역시 북구 구명동 32-2",
+    "latitude": 35.206590,
+    "longitude": 129.012328,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.206590,
+        "longitude": 129.012328,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "덕포",
+    "lines": ["부산김해경전철"],
+    "address": "부산광역시 사상구 덕포동 415-1",
+    "latitude": 35.189000,
+    "longitude": 128.995000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.189000,
+        "longitude": 128.995000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "괘법",
+    "lines": ["부산김해경전철"],
+    "address": "부산광역시 사상구 괘법동 533-1",
+    "latitude": 35.165422,
+    "longitude": 128.990375,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.165422,
+        "longitude": 128.990375,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "대사",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 대사동 123-1",
+    "latitude": 35.213000,
+    "longitude": 128.997000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.213000,
+        "longitude": 128.997000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "연지공원",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 외동 1244-2",
+    "latitude": 35.228700,
+    "longitude": 128.998900,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.228700,
+        "longitude": 128.998900,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "수로왕릉",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 외동 1256-1",
+    "latitude": 35.234700,
+    "longitude": 128.999900,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.234700,
+        "longitude": 128.999900,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "박물관",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 외동 1272-1",
+    "latitude": 35.239000,
+    "longitude": 129.003000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.239000,
+        "longitude": 129.003000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "김해시청",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 부원동 123-1",
+    "latitude": 35.242000,
+    "longitude": 129.008000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.242000,
+        "longitude": 129.008000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "부원",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 부원동 123-1",
+    "latitude": 35.245000,
+    "longitude": 129.012000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.245000,
+        "longitude": 129.012000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "김해대학",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 삼계동 123-1",
+    "latitude": 35.249000,
+    "longitude": 129.018000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.249000,
+        "longitude": 129.018000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "인제대",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 삼계동 123-1",
+    "latitude": 35.253000,
+    "longitude": 129.022000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.253000,
+        "longitude": 129.022000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "지내",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 삼계동 123-1",
+    "latitude": 35.256000,
+    "longitude": 129.026000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.256000,
+        "longitude": 129.026000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "불암",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 불암동 123-1",
+    "latitude": 35.259000,
+    "longitude": 129.031000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.259000,
+        "longitude": 129.031000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "장신대",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 삼계동 123-1",
+    "latitude": 35.262000,
+    "longitude": 129.035000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.262000,
+        "longitude": 129.035000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "가야대",
+    "lines": ["부산김해경전철"],
+    "address": "경상남도 김해시 삼계동 123-1",
+    "latitude": 35.265000,
+    "longitude": 129.039000,
+    "stations": [
+      {
+        "line": "부산김해경전철",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.265000,
+        "longitude": 129.039000,
+        "description": "부산김해경전철 1번 출구 앞 스테이션"
+      }
+    ]
+  }
+]

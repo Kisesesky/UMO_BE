@@ -1,0 +1,338 @@
+[
+  {
+    "stationName": "부전",
+    "lines": ["동해선"],
+    "address": "부산광역시 부산진구 부전동 256-14",
+    "latitude": 35.162369,
+    "longitude": 129.064069,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.162369,
+        "longitude": 129.064069,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "거제해맞이(거제)",
+    "lines": ["동해선"],
+    "address": "부산광역시 연제구 거제동",
+    "latitude": 35.176667,
+    "longitude": 129.079444,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.176667,
+        "longitude": 129.079444,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동래(부산교대 환승)",
+    "lines": ["동해선"],
+    "address": "부산광역시 동래구 명륜동",
+    "latitude": 35.205467,
+    "longitude": 129.084058,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.205467,
+        "longitude": 129.084058,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "안락",
+    "lines": ["동해선"],
+    "address": "부산광역시 동래구 안락동",
+    "latitude": 35.205845,
+    "longitude": 129.100348,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.205845,
+        "longitude": 129.100348,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "부산원동",
+    "lines": ["동해선"],
+    "address": "부산광역시 수영구 망미동",
+    "latitude": 35.167222,
+    "longitude": 129.116389,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.167222,
+        "longitude": 129.116389,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "재송",
+    "lines": ["동해선"],
+    "address": "부산광역시 해운대구 재송동",
+    "latitude": 35.180833,
+    "longitude": 129.128056,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.180833,
+        "longitude": 129.128056,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "센텀(구 수영)",
+    "lines": ["동해선"],
+    "address": "부산광역시 해운대구 우동",
+    "latitude": 35.168427,
+    "longitude": 129.130445,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.168427,
+        "longitude": 129.130445,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "벡스코(구 우일)",
+    "lines": ["동해선"],
+    "address": "부산광역시 해운대구 우동",
+    "latitude": 35.169000,
+    "longitude": 129.132000,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.169000,
+        "longitude": 129.132000,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "신해운대(구 해운대)",
+    "lines": ["동해선"],
+    "address": "부산광역시 해운대구 우동",
+    "latitude": 35.163056,
+    "longitude": 129.163611,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.163056,
+        "longitude": 129.163611,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "송정",
+    "lines": ["동해선"],
+    "address": "부산광역시 해운대구 송정동",
+    "latitude": 35.180278,
+    "longitude": 129.203611,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.180278,
+        "longitude": 129.203611,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "오시리아",
+    "lines": ["동해선"],
+    "address": "부산광역시 기장군 기장읍 시랑리",
+    "latitude": 35.188333,
+    "longitude": 129.223889,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.188333,
+        "longitude": 129.223889,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "기장",
+    "lines": ["동해선"],
+    "address": "부산광역시 기장군 기장읍 대라리",
+    "latitude": 35.244167,
+    "longitude": 129.222222,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.244167,
+        "longitude": 129.222222,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "일광",
+    "lines": ["동해선"],
+    "address": "부산광역시 기장군 일광면 삼성리",
+    "latitude": 35.266111,
+    "longitude": 129.2625,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.266111,
+        "longitude": 129.2625,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "좌천",
+    "lines": ["동해선"],
+    "address": "부산광역시 기장군 장안읍 좌천리",
+    "latitude": 35.298056,
+    "longitude": 129.309722,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.298056,
+        "longitude": 129.309722,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "월내",
+    "lines": ["동해선"],
+    "address": "울산광역시 울주군 서생면",
+    "latitude": 35.374722,
+    "longitude": 129.373611,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.374722,
+        "longitude": 129.373611,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "서생",
+    "lines": ["동해선"],
+    "address": "울산광역시 울주군 서생면",
+    "latitude": 35.401111,
+    "longitude": 129.415278,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.401111,
+        "longitude": 129.415278,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "남창",
+    "lines": ["동해선"],
+    "address": "울산광역시 울주군 온양읍",
+    "latitude": 35.418056,
+    "longitude": 129.4375,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.418056,
+        "longitude": 129.4375,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "망양",
+    "lines": ["동해선"],
+    "address": "울산광역시 울주군 온양읍",
+    "latitude": 35.444722,
+    "longitude": 129.468889,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.444722,
+        "longitude": 129.468889,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "덕하",
+    "lines": ["동해선"],
+    "address": "울산광역시 남구 덕하동",
+    "latitude": 35.489722,
+    "longitude": 129.416389,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.489722,
+        "longitude": 129.416389,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "개운포",
+    "lines": ["동해선"],
+    "address": "울산광역시 남구 개운포동",
+    "latitude": 35.519167,
+    "longitude": 129.424167,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.519167,
+        "longitude": 129.424167,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "태화강",
+    "lines": ["동해선"],
+    "address": "울산광역시 남구 삼산동",
+    "latitude": 35.541389,
+    "longitude": 129.425278,
+    "stations": [
+      {
+        "line": "동해선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.541389,
+        "longitude": 129.425278,
+        "description": "동해선 1번 출구 앞 스테이션"
+      }
+    ]
+  }
+]

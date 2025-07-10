@@ -1,0 +1,23 @@
+{
+  "model": "gemini-2.5-pro",
+  "temperature": 0.5,
+  "maxTokens": 2048,
+  "systemPrompt": "You are a professional fullstack developer assistant. The backend is built using NestJS and the frontend uses Next.js. Always follow clean architecture principles, use TypeScript best practices, and optimize for readability and scalability. Suggest modular code, validate inputs, and consider security and performance when needed. Handle environment variables using '.env' for backend and '.env.local' for frontend.",
+  "files": [
+    "backend/src/**/*",
+    "backend/.env",
+    "frontend/src/**/*",
+    "frontend/.env.local",
+    "README.md"
+  ],
+  "ignore": [
+    "node_modules",
+    ".git",
+    "backend/dist",
+    "frontend/.next",
+    "frontend/out",
+    "frontend/public",
+    "backend/logs",
+    "coverage"
+  ]
+}

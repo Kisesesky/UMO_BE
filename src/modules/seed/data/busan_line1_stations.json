@@ -1,0 +1,642 @@
+[
+  {
+    "stationName": "노포",
+    "lines": ["1호선"],
+    "address": "부산광역시 금정구 노포동 144-2",
+    "latitude": 35.316223,
+    "longitude": 129.157488,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.316223,
+        "longitude": 129.157488,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "범어사",
+    "lines": ["1호선"],
+    "address": "부산광역시 금정구 청룡동 46-2",
+    "latitude": 35.308825,
+    "longitude": 129.149017,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.308825,
+        "longitude": 129.149017,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "남산",
+    "lines": ["1호선"],
+    "address": "부산광역시 금정구 남산동 49-2",
+    "latitude": 35.298787,
+    "longitude": 129.144032,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.298787,
+        "longitude": 129.144032,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "두실",
+    "lines": ["1호선"],
+    "address": "부산광역시 금정구 두실로 23",
+    "latitude": 35.289344,
+    "longitude": 129.139231,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.289344,
+        "longitude": 129.139231,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "구서",
+    "lines": ["1호선"],
+    "address": "부산광역시 금정구 구서동 84-2",
+    "latitude": 35.284995,
+    "longitude": 129.119692,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.284995,
+        "longitude": 129.119692,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "장전",
+    "lines": ["1호선"],
+    "address": "부산광역시 금정구 장전동 419-1",
+    "latitude": 35.273128,
+    "longitude": 129.090324,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.273128,
+        "longitude": 129.090324,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "부산대",
+    "lines": ["1호선"],
+    "address": "부산광역시 금정구 장전동 419-1",
+    "latitude": 35.239926,
+    "longitude": 129.089944,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.239926,
+        "longitude": 129.089944,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "온천장",
+    "lines": ["1호선"],
+    "address": "부산광역시 동래구 온천동 144-1",
+    "latitude": 35.226469,
+    "longitude": 129.090349,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.226469,
+        "longitude": 129.090349,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "명륜",
+    "lines": ["1호선"],
+    "address": "부산광역시 동래구 명륜동 415-1",
+    "latitude": 35.210527,
+    "longitude": 129.082637,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.210527,
+        "longitude": 129.082637,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동래",
+    "lines": ["1호선"],
+    "address": "부산광역시 동래구 명륜동 415-1",
+    "latitude": 35.205467,
+    "longitude": 129.084058,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.205467,
+        "longitude": 129.084058,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "교대",
+    "lines": ["1호선"],
+    "address": "부산광역시 연제구 거제동 1486",
+    "latitude": 35.187183,
+    "longitude": 129.079385,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.187183,
+        "longitude": 129.079385,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "연산",
+    "lines": ["1호선"],
+    "address": "부산광역시 연제구 연산동 588-1",
+    "latitude": 35.186063,
+    "longitude": 129.081990,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.186063,
+        "longitude": 129.081990,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "시청",
+    "lines": ["1호선"],
+    "address": "부산광역시 연제구 거제동 1486",
+    "latitude": 35.179982,
+    "longitude": 129.074017,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.179982,
+        "longitude": 129.074017,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "양정",
+    "lines": ["1호선"],
+    "address": "부산광역시 부산진구 양정동 418-1",
+    "latitude": 35.173437,
+    "longitude": 129.072151,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.173437,
+        "longitude": 129.072151,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "부전",
+    "lines": ["1호선"],
+    "address": "부산광역시 부산진구 부전동 256-14",
+    "latitude": 35.162369,
+    "longitude": 129.064069,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.162369,
+        "longitude": 129.064069,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "서면",
+    "lines": ["1호선"],
+    "address": "부산광역시 부산진구 부전동 516-34",
+    "latitude": 35.157617,
+    "longitude": 129.059512,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.157617,
+        "longitude": 129.059512,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "범내골",
+    "lines": ["1호선"],
+    "address": "부산광역시 부산진구 범천동 853-1",
+    "latitude": 35.153574,
+    "longitude": 129.060425,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.153574,
+        "longitude": 129.060425,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "범일",
+    "lines": ["1호선"],
+    "address": "부산광역시 동구 범일동 830",
+    "latitude": 35.143166,
+    "longitude": 129.060808,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.143166,
+        "longitude": 129.060808,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "좌천",
+    "lines": ["1호선"],
+    "address": "부산광역시 동구 좌천동 1009-1",
+    "latitude": 35.140573,
+    "longitude": 129.057107,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.140573,
+        "longitude": 129.057107,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "부산진",
+    "lines": ["1호선"],
+    "address": "부산광역시 동구 범일동 830",
+    "latitude": 35.133772,
+    "longitude": 129.059638,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.133772,
+        "longitude": 129.059638,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "초량",
+    "lines": ["1호선"],
+    "address": "부산광역시 동구 초량동 1187-1",
+    "latitude": 35.124417,
+    "longitude": 129.045494,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.124417,
+        "longitude": 129.045494,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "부산",
+    "lines": ["1호선"],
+    "address": "부산광역시 동구 초량동 1187-1",
+    "latitude": 35.115118,
+    "longitude": 129.041904,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.115118,
+        "longitude": 129.041904,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "중앙",
+    "lines": ["1호선"],
+    "address": "부산광역시 중구 중앙동4가 30-1",
+    "latitude": 35.106434,
+    "longitude": 129.032863,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.106434,
+        "longitude": 129.032863,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "남포",
+    "lines": ["1호선"],
+    "address": "부산광역시 중구 남포동5가 32-1",
+    "latitude": 35.097184,
+    "longitude": 129.035883,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.097184,
+        "longitude": 129.035883,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "자갈치",
+    "lines": ["1호선"],
+    "address": "부산광역시 중구 남포동6가 115-1",
+    "latitude": 35.097184,
+    "longitude": 129.026183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.097184,
+        "longitude": 129.026183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "토성",
+    "lines": ["1호선"],
+    "address": "부산광역시 서구 토성동3가 1-1",
+    "latitude": 35.097184,
+    "longitude": 129.017183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.097184,
+        "longitude": 129.017183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동대신",
+    "lines": ["1호선"],
+    "address": "부산광역시 서구 동대신동3가 1-1",
+    "latitude": 35.106184,
+    "longitude": 129.017183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.106184,
+        "longitude": 129.017183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "서대신",
+    "lines": ["1호선"],
+    "address": "부산광역시 서구 서대신동2가 1-1",
+    "latitude": 35.106184,
+    "longitude": 129.007183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.106184,
+        "longitude": 129.007183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "대티",
+    "lines": ["1호선"],
+    "address": "부산광역시 서구 서대신동3가 1-1",
+    "latitude": 35.106184,
+    "longitude": 128.997183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.106184,
+        "longitude": 128.997183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "괴정",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 괴정동 1-1",
+    "latitude": 35.106184,
+    "longitude": 128.987183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.106184,
+        "longitude": 128.987183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "사하",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 괴정동 1-1",
+    "latitude": 35.106184,
+    "longitude": 128.977183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.106184,
+        "longitude": 128.977183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "당리",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 당리동 1-1",
+    "latitude": 35.106184,
+    "longitude": 128.967183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.106184,
+        "longitude": 128.967183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "하단",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 하단동 1-1",
+    "latitude": 35.106184,
+    "longitude": 128.957183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.106184,
+        "longitude": 128.957183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "신평",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 신평동 661",
+    "latitude": 35.104524,
+    "longitude": 128.966054,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.104524,
+        "longitude": 128.966054,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "동매",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 신평동 1-1",
+    "latitude": 35.100184,
+    "longitude": 128.956183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.100184,
+        "longitude": 128.956183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "장림",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 장림동 1-1",
+    "latitude": 35.096184,
+    "longitude": 128.946183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.096184,
+        "longitude": 128.946183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "신장림",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 신장림동 1-1",
+    "latitude": 35.092184,
+    "longitude": 128.936183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.092184,
+        "longitude": 128.936183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "낫개",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 낫개동 1-1",
+    "latitude": 35.088184,
+    "longitude": 128.926183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.088184,
+        "longitude": 128.926183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "다대포항",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 다대동 1-1",
+    "latitude": 35.084184,
+    "longitude": 128.916183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.084184,
+        "longitude": 128.916183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  },
+  {
+    "stationName": "다대포해수욕장",
+    "lines": ["1호선"],
+    "address": "부산광역시 사하구 다대동 1-1",
+    "latitude": 35.080184,
+    "longitude": 128.906183,
+    "stations": [
+      {
+        "line": "1호선",
+        "stationLocation": "1번 출구 앞",
+        "latitude": 35.080184,
+        "longitude": 128.906183,
+        "description": "1호선 1번 출구 앞 스테이션"
+      }
+    ]
+  }
+]
