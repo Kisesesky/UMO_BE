@@ -7,7 +7,7 @@ import { json } from 'express';
 import * as expressBasicAuth from 'express-basic-auth';
 import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
-import { AuditLogger } from './common/logs/audit-looger.service';
+import { AuditLogger } from './common/logs/audit-logger.service';
 import { initSentry } from './common/sentry/sentry.config';
 import { AppConfigService } from './config/app/config.service';
 

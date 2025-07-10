@@ -22,7 +22,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}     # github Repository Actions에 등록해놔야함
 
       - name: Build Docker image
-        run: docker build -t hoyaa/weather_link:latest .  # Docker-hub ID/Repository:tag
+        run: docker build -t hoyau/umo_app:latest .  # Docker-hub ID/Repository:tag
 
       - name: Push Docker image
-        run: docker push hoyaa/weather_link:latest        # Docker-hub ID/Repository:tag
+        run: docker push hoyau/umo_app:latest        # Docker-hub ID/Repository:tag

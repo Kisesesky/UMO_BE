@@ -4,7 +4,7 @@ import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard } from '@nestjs/throttler';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuditLogger } from './common/logs/audit-looger.service';
+import { AuditLogger } from './common/logs/audit-logger.service';
 import { SocialConfigModule } from './config/social/config.module';
 import { AdminModule } from './modules/admin/admin.module';
 import { AuthModule } from './modules/auth/auth.module';

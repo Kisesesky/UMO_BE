@@ -10,7 +10,7 @@ import {
 import { HttpAdapterHost } from '@nestjs/core';
 import { QueryFailedError } from 'typeorm';
 import { ErrorResponseDto } from '../dto/error-response.dto';
-import { AuditLogger } from '../logs/audit-looger.service';
+import { AuditLogger } from '../logs/audit-logger.service';
 import * as Sentry from '@sentry/node';
 
 @Catch() // 모든 예외를 잡음

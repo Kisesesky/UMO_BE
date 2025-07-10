@@ -13,8 +13,8 @@ export class NotificationService {
   private readonly logger = new Logger(NotificationService.name);
 
   // 알림을 보낼 기본 위치 (예: 부산 중구)
-  private readonly DEFAULT_NX = 98;
-  private readonly DEFAULT_NY = 76;
+  private readonly DEFAULT_LAT = 35.10278;
+  private readonly DEFAULT_LON = 129.04028;
 
   constructor(
     private readonly weatherService: WeatherService,
@@ -25,23 +25,22 @@ export class NotificationService {
    * 날씨 정보를 기반으로 알림 메시지를 생성하고 웹소켓으로 전송합니다.
    * 특정 위치(nx, ny)에 대한 알림을 생성합니다.
    */
-  async sendWeatherNotification(nx: number = this.DEFAULT_NX, ny: number = this.DEFAULT_NY): Promise<void> {
+   async sendWeatherNotification(lat: number = this.DEFAULT_LAT, lon: number = this.DEFAULT_LON): Promise<void> {
     try {
-      this.logger.log(`날씨 알림 생성 시작: nx=${nx}, ny=${ny}`);
-      
-      // 오늘 날짜의 예보 정보 조회 (WeatherService의 getDailyForecast 사용)
-      const today = new Date();
-      const dateString = today.toISOString().split('T')[0]; // YYYY-MM-DD 형식
-      
-      const weatherForecast = await this.weatherService.getDailyForecast(dateString, nx, ny);
-      
+      this.logger.log(`날씨 알림 생성 시작: lat=${lat}, lon=${lon}`);
+
+      // WeatherService의 getCurrentWeather 사용
+      const weatherData = await this.weatherService.getCurrentWeather(lat, lon);
+
+      const weatherResponse = WeatherResponseDto.fromWeatherDataDto(weatherData);
+
       // 날씨 상태에 따른 메시지 생성
-      const notification = this.createWeatherNotification(weatherForecast);
-      
+      const notification = this.createWeatherNotification(weatherResponse);
+
       // 웹소켓으로 알림 전송
       await this.websocketService.sendNotification(notification);
-      
-      this.logger.log(`날씨 알림 전송 완료: ${notification.title} (nx=${nx}, ny=${ny})`);
+
+      this.logger.log(`날씨 알림 전송 완료: ${notification.title} (lat=${lat}, lon=${lon})`);
     } catch (error) {
       this.logger.error(`날씨 알림 생성 중 오류 발생: ${error.message}`, error.stack);
       throw new InternalServerErrorException('날씨 알림을 생성하는 중 오류가 발생했습니다.');
