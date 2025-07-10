@@ -3,14 +3,18 @@
 /node_modules
 /build
 
-# Logs
-logs
+# 로그 파일만 무시
+logs/
 *.log
 npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+
+# src/common/logs/ 등 소스 코드 폴더는 추적 예외
+!src/common/logs/
+!src/modules/admin/logs/
 
 # OS
 .DS_Store
