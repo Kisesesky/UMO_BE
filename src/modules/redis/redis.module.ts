@@ -8,6 +8,7 @@ import * as redisStore from 'cache-manager-ioredis';
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     CacheModule.registerAsync({
+      isGlobal: true,
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
         const host = configService.get('REDIS_HOST');
@@ -22,7 +23,6 @@ import * as redisStore from 'cache-manager-ioredis';
           password,
           ttl,
           max,
-          isGlobal: true,
         };
       },
       inject: [ConfigService],
