@@ -9,11 +9,9 @@ import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 import { AuditLogger } from './common/logs/audit-logger.service';
 import { initSentry } from './common/sentry/sentry.config';
-import { AppConfigService } from './config/app/config.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const appConfigService = app.get(AppConfigService);
   const logger = new Logger('Bootstrap');
 
   app.use(cookieParser());
@@ -110,7 +108,7 @@ async function bootstrap() {
     JSON.stringify(document),
   );
 
-  await app.listen(appConfigService.port);
-  console.log(`Application is running on: ${await app.getUrl()}`);
+  const port = process.env.PORT || 8080;
+  await app.listen(port);
 }
 bootstrap();

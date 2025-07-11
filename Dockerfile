@@ -28,7 +28,7 @@ COPY . .
 RUN npm run build
 
 # 10. 실행 포트 노출
-EXPOSE 3000
+EXPOSE 8080
 
 # 11. wait-for-it.sh 스크립트 복사 및 실행 권한 부여
 COPY scripts/wait-for-it.sh ./scripts/wait-for-it.sh
