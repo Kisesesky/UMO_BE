@@ -3,36 +3,36 @@
 # 1. Node.js LTS 버전 사용
 FROM node:22
 
-# 2. 서버 시간 한국시간으로 설정
+# 서버 시간 한국시간으로 바꾸기
 ENV TZ=Asia/Seoul
 
-# 3. 작업 디렉토리 생성 및 이동
+# 2. 작업 디렉토리 생성 및 이동
 WORKDIR /usr/src/app
 
-# 4. package.json 및 package-lock.json 복사
+# 3. package.json 및 package-lock.json 복사
 COPY package*.json ./
 
-# 5. 의존성 설치
+# 4. 패키지 설치
 RUN npm install --legacy-peer-deps
 
-# 6. nest-cli 글로벌 설치 (마이그레이션용)
+# 5. nest-cli 글로벌 설치
 RUN npm install -g @nestjs/cli
 
-# 7. 글로벌 npm bin 디렉토리를 PATH에 추가 (확인 필요)
+# 6. 글로벌 npm bin 디렉토리를 PATH에 추가
 ENV PATH=/usr/local/lib/node_modules/.bin:$PATH
 
-# 8. 소스 코드 복사
+# 7. 소스 코드 복사
 COPY . .
 
-# 9. 앱 빌드
+# 8. NestJS 앱 빌드
 RUN npm run build
 
-# 10. 실행 포트 노출
-EXPOSE 8080
+# 9. 실행할 포트 지정
+EXPOSE 3000
 
-# 11. wait-for-it.sh 스크립트 복사 및 실행 권한 부여
+# 9. wait-for-it.sh 스크립트 추가
 COPY scripts/wait-for-it.sh ./scripts/wait-for-it.sh
 RUN chmod +x ./scripts/wait-for-it.sh
 
-# 12. 컨테이너 시작 명령
-CMD ["./scripts/wait-for-it.sh", "umo_db:5432", "--", "sh", "-c", "npm run migration:run && npm run start:prod"]
+# 10. 실행 명령 수정 (상대 경로로)
+CMD ["./scripts/wait-for-it.sh", "database:5432", "--", "sh", "-c", "npm run migration:run && npm run start:prod"]
