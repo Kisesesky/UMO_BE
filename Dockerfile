@@ -1,7 +1,7 @@
 # Dockerfile
 
-# 1. Node.js LTS 버전 (20-alpine) 사용
-FROM node:20-alpine
+# 1. Node.js LTS 버전 사용
+FROM node:22
 
 # 2. 서버 시간 한국시간으로 설정
 ENV TZ=Asia/Seoul
@@ -19,7 +19,7 @@ RUN npm install --legacy-peer-deps
 RUN npm install -g @nestjs/cli
 
 # 7. 글로벌 npm bin 디렉토리를 PATH에 추가 (확인 필요)
-ENV PATH=/usr/local/bin:$PATH
+ENV PATH=/usr/local/lib/node_modules/.bin:$PATH
 
 # 8. 소스 코드 복사
 COPY . .
@@ -35,4 +35,4 @@ COPY scripts/wait-for-it.sh ./scripts/wait-for-it.sh
 RUN chmod +x ./scripts/wait-for-it.sh
 
 # 12. 컨테이너 시작 명령
-CMD ["/usr/src/app/scripts/wait-for-it.sh", "database:5433", "--", "sh", "-c", "exec npm run migration:run && exec npm run start:prod"]
+CMD ["./scripts/wait-for-it.sh", "database:5433", "--", "sh", "-c", "npm run migration:run && npm run start:prod"]
