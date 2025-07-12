@@ -35,4 +35,4 @@ COPY scripts/wait-for-it.sh ./scripts/wait-for-it.sh
 RUN chmod +x ./scripts/wait-for-it.sh
 
 # 12. 컨테이너 시작 명령
-CMD ["./scripts/wait-for-it.sh", "database:5433", "--", "sh", "-c", "npm run migration:run && npm run start:prod"]
+CMD ["./scripts/wait-for-it.sh", "umo_db:5432", "--", "sh", "-c", "npm run migration:run && npm run start:prod"]
