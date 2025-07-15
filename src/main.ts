@@ -47,7 +47,7 @@ async function bootstrap() {
 
   //CORS 설정 - 개발용
   app.enableCors({
-    origin: '*',
+    origin: ['https://eveyday-umo.site', 'https://www.eveyday-umo.site'],
     credentials: true,
   });
 

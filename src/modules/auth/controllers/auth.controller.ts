@@ -1,6 +1,6 @@
 // src/auth/auth.controller.ts
-import { Controller, Post, Body, UseGuards, Request, HttpCode, Res, Req, Get, UnauthorizedException } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiCookieAuth, ApiHeader, ApiBody } from '@nestjs/swagger';
+import { Controller, Post, Body, UseGuards, Request, HttpCode, Res, Req, Get, UnauthorizedException, UseInterceptors, BadRequestException, UploadedFile } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiCookieAuth, ApiHeader, ApiBody, ApiConsumes } from '@nestjs/swagger';
 import { AuthService } from '../services/auth.service';
 import { LoginDto } from '../dto/login.dto';
 import { RegisterDto } from '../dto/register.dto';
@@ -18,6 +18,8 @@ import { KakaoAuthGuard } from '../guards/kakao-auth.guard';
 import { PasswordCheckDto } from '../dto/password-check.dto';
 import { TimeUtil } from 'src/common/utils/time-util';
 import { NaverAuthGuard } from '../guards/naver-auth.guard';
+import { GcsService } from 'src/modules/gcs/gcs.service';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -25,6 +27,7 @@ export class AuthController {
   constructor(
     private readonly authService: AuthService,
     private readonly appConfigService: AppConfigService,
+    private readonly gcsService: GcsService,
     ) {}
 
   @Post('login')
@@ -65,12 +68,48 @@ export class AuthController {
 
   @Post('register')
   @ApiOperation({ summary: '회원가입', description: '새로운 사용자를 등록합니다.' })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    description: '회원가입 정보 및 프로필 이미지',
+    schema: {
+      type: 'object',
+      properties: {
+        name: { type: 'string', example: 'UMO' },
+        email: { type: 'string', example: 'test@test.com' },
+        password: { type: 'string', example: 'Password123!' },
+        agreedTerms: { type: 'boolean', example: true },
+        agreedPrivacy: { type: 'boolean', example: true },
+        profileImage: { type: 'string', format: 'binary' },
+      },
+      required: ['name', 'email', 'password', 'agreedTerms', 'agreedPrivacy'],
+    },
+  })
   @ApiResponse({ status: 201, description: '회원가입 성공', type: UserResponseDto })
   @ApiResponse({ status: 400, description: '잘못된 요청 데이터 (유효성 검사 실패)', type: ErrorResponseDto })
   @ApiResponse({ status: 409, description: '이미 사용 중인 이메일입니다.', type: ErrorResponseDto })
   @ApiResponse({ status: 500, description: '서버 오류', type: ErrorResponseDto })
-  async register(@Body() registerDto: RegisterDto): Promise<UserResponseDto> {
-    return this.authService.register(registerDto);
+  @UseInterceptors(FileInterceptor('profileImage', {
+    limits: { fileSize: 5 * 1024 * 1024 },
+    fileFilter: (req, file, cb) => {
+      if (!file.mimetype.startsWith('image/')) {
+        return cb(new BadRequestException('이미지 파일만 업로드할 수 있습니다.'), false);
+      }
+      cb(null, true);
+    },
+  }))
+  async register(
+    @UploadedFile() file: Express.Multer.File,
+    @Body() registerDto: RegisterDto,
+  ): Promise<UserResponseDto> {
+    // 1. 파일이 있으면 GCS 업로드, 없으면 기본 이미지 사용
+    const profileImageUrl = file
+    ? await this.gcsService.uploadFile(file)
+    : 'assets/character/umo-face2.png';
+
+    return this.authService.register({
+      ...registerDto,
+      profileImage: profileImageUrl,
+    } as any);
   }
 
   @Post('refresh')

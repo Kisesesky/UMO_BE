@@ -1,16 +1,16 @@
 // src/auth/dto/register.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-import { IsBoolean, IsEmail, IsNotEmpty, IsString, Matches, MaxLength, MinLength } from 'class-validator';
+import { IsBoolean, IsEmail, IsNotEmpty, IsOptional, IsString, Matches, MaxLength, MinLength } from 'class-validator';
 
 export class RegisterDto {
-  @ApiProperty({ example: '김철수', description: '사용자 이름' })
+  @ApiProperty({ example: 'tester', description: '사용자 이름' })
   @IsNotEmpty()
   @MaxLength(8)
   @Matches(/^[가-힣a-zA-Z0-9]+$/)
   @IsString()
   name: string;
 
-  @ApiProperty({ example: 'test@example.com', description: '사용자 이메일' })
+  @ApiProperty({ example: 'test@test.com', description: '사용자 이메일' })
   @IsNotEmpty()
   @IsEmail({}, { message: '유효한 이메일 형식이 아닙니다.' })
   email: string;

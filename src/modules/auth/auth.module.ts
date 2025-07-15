@@ -21,6 +21,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { KakaoStrategy } from './strategies/kakao.strategy';
 import { NaverStrategy } from './strategies/naver.strategy';
 import { AdminModule } from '../admin/admin.module';
+import { GcsModule } from '../gcs/gcs.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { AdminModule } from '../admin/admin.module';
     SocialConfigModule,
     RedisModule,
     AdminModule,
+    GcsModule,
     JwtModule.registerAsync({
       imports: [AppConfigModule],
       inject: [AppConfigService],

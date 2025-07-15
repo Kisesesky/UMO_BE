@@ -9,6 +9,8 @@ export const USERS_SEED_DATA = [
     password: 'AdminPassword1!', // UserSubscriber가 해싱 처리
     role: USER_ROLE.ADMIN,
     status: USER_STATUS.ACTIVE,
+    agreedTerms: true,
+    agreedPrivacy: true,
   },
   {
     name: '테스트 사용자 1',
@@ -16,6 +18,8 @@ export const USERS_SEED_DATA = [
     password: 'UserPassword1!',
     role: USER_ROLE.USER,
     status: USER_STATUS.ACTIVE,
+    agreedTerms: true,
+    agreedPrivacy: true,
   },
   {
     name: '비활성 사용자',
@@ -23,5 +27,7 @@ export const USERS_SEED_DATA = [
     password: 'UserPassword1!',
     role: USER_ROLE.USER,
     status: USER_STATUS.INACTIVE,
+    agreedTerms: true,
+    agreedPrivacy: true,
   },
 ];

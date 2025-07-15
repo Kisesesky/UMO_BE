@@ -8,7 +8,7 @@ export class SocialProfileDto {
   @IsString()
   email: string;
 
-  @ApiProperty({ example: '홍길동' })
+  @ApiProperty({ example: 'tester' })
   @IsString()
   name: string;
 

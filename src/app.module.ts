@@ -26,6 +26,7 @@ import { UsersModule } from './modules/users/users.module';
 import { WalletsModule } from './modules/wallets/wallets.module';
 import { WeatherModule } from './modules/weather/weather.module';
 import { WebsocketModule } from './modules/websocket/websocket.module';
+import { GcsModule } from './modules/gcs/gcs.module';
 import * as winston from 'winston'
 
 @Module({
@@ -60,6 +61,7 @@ import * as winston from 'winston'
     SupportModule,
     RedisModule,
     ThrottlerConfigModule,
+    GcsModule,
   ],
   controllers: [AppController],
   providers: [

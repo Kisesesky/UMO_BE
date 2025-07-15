@@ -12,6 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# key 파일
+.key
+
 # src/common/logs/ 등 소스 코드 폴더는 추적 예외
 !src/common/logs/
 !src/modules/admin/logs/
