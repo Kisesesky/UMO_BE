@@ -48,7 +48,6 @@ async function bootstrap() {
   //CORS 설정 - 개발용
   app.enableCors({
     origin: [
-      'https://eveyday-umo.site', 
       'https://www.eveyday-umo.site',
       'http://localhost:3000'
     ],

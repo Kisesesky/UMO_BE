@@ -3,6 +3,10 @@
 /node_modules
 /build
 
+#gemini
+.gemini/
+.gemini/setting.json
+
 # 로그 파일만 무시
 logs/
 *.log

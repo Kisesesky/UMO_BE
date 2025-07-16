@@ -3,3 +3,7 @@ node_modules
 .env
 dist
 .key
+
+#gemini
+.gemini/
+.gemini/setting.json

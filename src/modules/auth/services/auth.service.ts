@@ -211,10 +211,10 @@ export class AuthService {
         const url = new URL(
           requestDomain.startsWith('http') ? requestDomain : `https://${requestDomain}`,
         );
-        domain = url.hostname;
+        domain = '.' + url.hostname.replace(/^www\./, '');
       } catch (e) {
         this.logger.error(`Invalid requestDomain for URL parsing: ${requestDomain}. Falling back to hostname.`, e.stack);
-        domain = requestDomain.split(':')[0];
+        domain = '.' + requestDomain.split(':')[0].replace(/^www\./, '');
       }
     }
 
