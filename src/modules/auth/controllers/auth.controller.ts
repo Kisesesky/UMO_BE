@@ -1,5 +1,5 @@
 // src/auth/auth.controller.ts
-import { Controller, Post, Body, UseGuards, Request, HttpCode, Res, Req, Get, UnauthorizedException, UseInterceptors, BadRequestException, UploadedFile } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Request, HttpCode, Res, Req, Get, UnauthorizedException, UseInterceptors, BadRequestException, UploadedFile, Patch } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiCookieAuth, ApiHeader, ApiBody, ApiConsumes } from '@nestjs/swagger';
 import { AuthService } from '../services/auth.service';
 import { LoginDto } from '../dto/login.dto';
@@ -20,6 +20,9 @@ import { TimeUtil } from 'src/common/utils/time-util';
 import { NaverAuthGuard } from '../guards/naver-auth.guard';
 import { GcsService } from 'src/modules/gcs/gcs.service';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { UsersService } from 'src/modules/users/users.service';
+import { RegisterStatus } from 'src/common/constants/register-status';
+import { SocialTermsAgreeDto } from '../dto/social-termsagree.dto';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -28,6 +31,7 @@ export class AuthController {
     private readonly authService: AuthService,
     private readonly appConfigService: AppConfigService,
     private readonly gcsService: GcsService,
+    private readonly usersService: UsersService,
     ) {}
 
   @Post('login')
@@ -190,10 +194,18 @@ export class AuthController {
     // validateSocialLogin을 통해 사용자 찾거나 생성
     const user = await this.authService.validateSocialLogin(socialProfile);
 
-    // JWT 토큰 발급 및 쿠키 설정
-    const { accessToken, refreshToken, accessOptions, refreshOptions } = 
-      this.authService.makeJwtToken(user.email, origin); // user.email 사용
-
+    if (!user.agreedTerms || !user.agreedPrivacy) {
+      // 약관 미동의: 토큰 발급 없이 약관 동의 화면으로 리다이렉트
+      // URL 뒤에 socialId 등(임시 식별값) 추가
+      return res.redirect(
+        `${this.appConfigService.frontendUrl}/auth/social-terms?socialId=${user.socialId}&provider=${user.provider}`
+      );
+    }
+  
+    // 약관 동의된 회원만 JWT 및 쿠키 제공 (정상 로그인)
+    const { accessToken, refreshToken, accessOptions, refreshOptions } =
+      this.authService.makeJwtToken(user.email, origin);
+  
     res.cookie('access_token', accessToken, accessOptions);
     res.cookie('refresh_token', refreshToken, refreshOptions);
     
@@ -221,9 +233,17 @@ export class AuthController {
     // validateSocialLogin을 통해 사용자 찾거나 생성
     const user = await this.authService.validateSocialLogin(socialProfile);
 
-    // JWT 토큰 발급 및 쿠키 설정
-    const { accessToken, refreshToken, accessOptions, refreshOptions } = 
-      this.authService.makeJwtToken(user.email, origin); // user.email 사용
+    if (!user.agreedTerms || !user.agreedPrivacy) {
+      // 약관 미동의: 토큰 발급 없이 약관 동의 화면으로 리다이렉트
+      // URL 뒤에 socialId 등(임시 식별값) 추가
+      return res.redirect(
+        `${this.appConfigService.frontendUrl}/auth/social-terms?socialId=${user.socialId}&provider=${user.provider}`
+      );
+    }
+  
+    // 약관 동의된 회원만 JWT 및 쿠키 제공 (정상 로그인)
+    const { accessToken, refreshToken, accessOptions, refreshOptions } =
+      this.authService.makeJwtToken(user.email, origin);
 
     res.cookie('access_token', accessToken, accessOptions);
     res.cookie('refresh_token', refreshToken, refreshOptions);
@@ -254,6 +274,15 @@ export class AuthController {
 
     const user = await this.authService.validateSocialLogin(socialProfile);
 
+    if (!user.agreedTerms || !user.agreedPrivacy) {
+      // 약관 미동의: 토큰 발급 없이 약관 동의 화면으로 리다이렉트
+      // URL 뒤에 socialId 등(임시 식별값) 추가
+      return res.redirect(
+        `${this.appConfigService.frontendUrl}/auth/social-terms?socialId=${user.socialId}&provider=${user.provider}`
+      );
+    }
+  
+    // 약관 동의된 회원만 JWT 및 쿠키 제공 (정상 로그인)
     const { accessToken, refreshToken, accessOptions, refreshOptions } =
       this.authService.makeJwtToken(user.email, origin);
 
@@ -261,6 +290,29 @@ export class AuthController {
     res.cookie('refresh_token', refreshToken, refreshOptions);
 
     return res.redirect(`${this.appConfigService.frontendUrl}/auth/social-callback`);
+  }
+
+  @Patch('social-terms/agree')
+  async agreeTerms(
+    @Body() dto: SocialTermsAgreeDto,
+    @Res({ passthrough: true }) res: Response,
+    @RequestOrigin() origin: string
+    ) {
+    // 1. 해당 소셜 유저 validate
+    const user = await this.usersService.findUserBySocialId(dto.socialId, dto.provider);
+    if (!user) throw new BadRequestException('유저 없음');
+    // 2. 동의 여부 갱신
+    user.agreedTerms = dto.agreedTerms;
+    user.agreedPrivacy = dto.agreedPrivacy;
+    await this.usersService.update(user.id, user);
+    // 3. JWT 발급 및 쿠키 세팅
+    const { accessToken, refreshToken, accessOptions, refreshOptions } =
+      this.authService.makeJwtToken(user.email, origin);
+
+    res.cookie('access_token', accessToken, accessOptions);
+    res.cookie('refresh_token', refreshToken, refreshOptions);
+
+    return { success: true };
   }
 
   @Post('verify-password')

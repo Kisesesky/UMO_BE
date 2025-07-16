@@ -1,3 +1,4 @@
+// src/modules/auth/controllers/auth.service.controller.ts
 import { BadRequestException, Body, Controller, Get, HttpCode, HttpStatus, Patch, Post, Query, Res } from "@nestjs/common";
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { Response } from 'express';
