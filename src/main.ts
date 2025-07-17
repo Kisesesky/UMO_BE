@@ -49,6 +49,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'https://www.eveyday-umo.site',
+      'https://eveyday-umo.site',
       'http://localhost:3000'
     ],
     credentials: true,
