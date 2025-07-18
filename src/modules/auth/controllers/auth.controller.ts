@@ -42,7 +42,7 @@ export class AuthController {
   @ApiResponse({ status: 500, description: '서버 오류', type: ErrorResponseDto })
   async login(
     @Body() loginDto: LoginDto,
-    @Res({ passthrough: true }) response: Response,
+    @Res({ passthrough: true }) res: Response,
     @RequestOrigin() origin: string,
   ): Promise<AuthResponseDto> {
     const user = await this.authService.validateUser(loginDto.email, loginDto.password);
@@ -64,8 +64,8 @@ export class AuthController {
       true,
     );
     
-    response.cookie('access_token', result.accessToken, accessOptions);
-    response.cookie('refresh_token', result.refreshToken, refreshOptions);
+    res.cookie('access_token', result.accessToken, accessOptions);
+    res.cookie('refresh_token', result.refreshToken, refreshOptions);
     
     return result;
   }
@@ -149,7 +149,7 @@ export class AuthController {
   @ApiResponse({ status: 401, description: '인증되지 않은 요청', type: ErrorResponseDto })
   @ApiResponse({ status: 500, description: '서버 오류', type: ErrorResponseDto })
   async logout(
-    @Res({ passthrough: true }) response: Response,
+    @Res({ passthrough: true }) res: Response,
     @RequestOrigin() origin: string,
     @RequestUser() user: UserResponseDto,
   ): Promise<{ message: string }> {
@@ -157,8 +157,8 @@ export class AuthController {
     
     const { accessOptions, refreshOptions } = this.authService.expireJwtToken(origin);
     
-    response.cookie('access_token', '', accessOptions);
-    response.cookie('refresh_token', '', refreshOptions);
+    res.cookie('access_token', '', accessOptions);
+    res.cookie('refresh_token', '', refreshOptions);
     
     return { message: '로그아웃 되었습니다.' };
   }
