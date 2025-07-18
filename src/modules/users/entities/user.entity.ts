@@ -3,6 +3,7 @@ import { RegisterStatus, REGISTER_STATUS } from 'src/common/constants/register-s
 import { UserRole, USER_ROLE } from "src/common/constants/user-role";
 import { UserStatus, USER_STATUS } from "src/common/constants/user-status";
 import { BaseEntity } from "src/common/entities/base.entity";
+import { Location } from 'src/modules/locations/entities/location.entity';
 import { Rental } from "src/modules/rentals/entities/rental.entity";
 import { Wallet } from "src/modules/wallets/entities/wallet.entity";
 import { Column, Entity, OneToMany, OneToOne } from "typeorm";
@@ -44,4 +45,7 @@ export class User extends BaseEntity {
 
   @OneToOne(() => Wallet, wallet => wallet.user)
   wallet: Wallet;
+
+  @OneToMany(() => Location, location => location.user)
+  locations: Location[]
 }

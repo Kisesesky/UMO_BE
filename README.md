@@ -194,6 +194,18 @@ src/
 │   ├── database/                               # DB 모듈
 │   │   └── database.module.ts       
 │   │
+│   ├── gcs/                                    # gcs 모듈
+│   │   ├── gcs.controller.ts
+│   │   ├── gcs.module.ts
+│   │   └── gcs.service.ts       
+│   │     
+│   ├── locations/                              # 위치 모듈
+│   │   ├── dto/
+│   │   └── entities/
+│   │   ├── locations.controller.ts
+│   │   ├── locations.module.ts
+│   │   └── locations.service.ts       
+│   │     
 │   ├── notification/                           # 알림 모듈
 │   │   └── dto/
 │   │   ├── notification.module.ts
