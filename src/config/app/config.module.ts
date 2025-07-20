@@ -16,7 +16,7 @@ import configuration from './configuration';
         ACCESS_EXPIRES_IN: Joi.string().required(),
         JWT_REFRESH_EXPIRES_IN: Joi.string().required(),
         PORT: Joi.number().required(),
-        FRONTENDURL: Joi.string().required(),
+        FRONTEND_URL: Joi.string().required(),
         GMAIL_USER: Joi.string().required(),
         GMAIL_PASS: Joi.string().required(),
       }),
