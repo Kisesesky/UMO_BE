@@ -23,6 +23,22 @@ export class AppConfigService {
     return this.configService.get<string>('app.jwtRefreshExpiresIn') || '30d';
   }
 
+  get adminJwtSecret() {
+    return this.configService.get<string>('app.adminJwtSecret');
+  }
+
+  get adminJwtRefreshSecret() {
+    return this.configService.get<string>('app.adminJwtRefreshSecret');
+  }
+
+  get adminAccessExpiresIn(): string {
+    return this.configService.get<string>('app.adminAccessExpiresIn') || '30m';
+  }
+
+  get adminJwtRefreshExpiresIn(): string {
+    return this.configService.get<string>('app.adminJwtRefreshExpiresIn') || '7d';
+  }
+
   get port():number {
     return this.configService.get<number>('app.port') ?? 3000;
   }

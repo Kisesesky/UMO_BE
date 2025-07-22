@@ -1,4 +1,4 @@
-// src/modules/admin/admin.moduels.ts
+// src/modules/admin/admin.modules.ts
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -22,11 +22,12 @@ import { AdminStatsService } from './stats/admin-stats.service';
       imports: [AppConfigModule],
       inject: [AppConfigService],
       useFactory: (appConfigService: AppConfigService) => ({
-        secret: appConfigService.jwtSecret,
-        signOptions: { expiresIn: appConfigService.accessExpiresIn },
+        secret: appConfigService.adminJwtSecret,
+        signOptions: { expiresIn: appConfigService.adminAccessExpiresIn },
       }),
     }),
     RedisModule,
+    AppConfigModule,
   ],
   controllers: [AdminController, AdminStatsController],
   providers: [AdminService, AdminRolesGuard, AdminLogService, AdminStatsService, LoginAttemptService],

@@ -44,8 +44,13 @@ export class AdminStatsService {
     return this.adminLogRepo
       .createQueryBuilder('log')
       .select('log.adminId', 'adminId')
+      .addSelect('a.name', 'name')
+      .addSelect('a.email', 'email')
       .addSelect('COUNT(*)', 'count')
+      .innerJoin(Admin, 'a', 'a.id = log.adminId')
       .groupBy('log.adminId')
+      .addGroupBy('a.name')
+      .addGroupBy('a.email')
       .orderBy('count', 'DESC')
       .limit(limit)
       .getRawMany();

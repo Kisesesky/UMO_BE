@@ -1,7 +1,7 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class AddAdminModules1753159330339 implements MigrationInterface {
-    name = 'AddAdminModules1753159330339'
+export class AddAdminModules1753164415581 implements MigrationInterface {
+    name = 'AddAdminModules1753164415581'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`ALTER TABLE "wallets" DROP CONSTRAINT "FK_92558c08091598f7a4439586cda"`);

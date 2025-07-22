@@ -1,6 +1,7 @@
 // src/modules/admin/logs/admin-log.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AdminLogAction } from 'src/common/constants/admin-log-action-status';
 import { Repository } from 'typeorm';
 import { AdminLogResponseDto } from './dto/admin-log-response.dto';
 import { AdminLog } from './entities/admin-log.entity';
@@ -17,19 +18,22 @@ export class AdminLogService {
     action,
     ipAddress,
     userAgent,
+    meta = {},
   }: {
-    adminId: number;
-    action: string;
-    ipAddress?: string;
-    userAgent?: string;
-  }): Promise<AdminLog> {
-    const log = this.adminLogRepository.create({
+    adminId: number,
+    action: AdminLogAction,
+    ipAddress: string,
+    userAgent: string,
+    meta?: any,
+  }) {
+    await this.adminLogRepository.save({
       adminId,
-      ipAddress: ipAddress ?? '',
-      userAgent: userAgent ?? '',
       action,
+      ipAddress,
+      userAgent,
+      meta: JSON.stringify(meta),
+      createdAt: new Date(),
     });
-    return this.adminLogRepository.save(log);
   }
 
   async findLogsByAdminId(adminId: number): Promise<AdminLogResponseDto[]> {

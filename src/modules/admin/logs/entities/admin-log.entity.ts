@@ -1,4 +1,5 @@
 // src/modules/admin/logs/entities/admin-log.entity.ts
+import { AdminLogAction } from 'src/common/constants/admin-log-action-status';
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -15,8 +16,8 @@ export class AdminLog {
   @Column()
   userAgent: string;
 
-  @Column()
-  action: string;
+  @Column({ type: 'varchar' })
+  action: AdminLogAction;
 
   @CreateDateColumn()
   loggedAt: Date;

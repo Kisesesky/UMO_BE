@@ -1,5 +1,5 @@
 // src/modules/admin/service/admin.service.ts
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Admin } from '../entities/admin.entity';
@@ -18,6 +18,11 @@ import { getClientIp, getUserAgent } from 'src/common/utils/request-util';
 import { AdminResponseDto } from '../dto/admin-response.dto';
 import { ChangePasswordDto } from '../dto/change-password-admin.dto';
 import { ResetPasswordDto } from '../dto/reset-password-admin.dto';
+import { AdminAuthResponseDto } from '../dto/admin-auth-response.dto';
+import { JwtService } from '@nestjs/jwt';
+import { AdminLoginDto } from '../dto/login-admin.dto';
+import { LoginAttemptService } from './login-attempt.service';
+import { AppConfigService } from 'src/config/app/config.service';
 
 @Injectable()
 export class AdminService {
@@ -25,7 +30,56 @@ export class AdminService {
     @InjectRepository(Admin)
     private readonly adminRepository: Repository<Admin>,
     private readonly adminLogService: AdminLogService,
+    private readonly loginAttemptService: LoginAttemptService,
+    private appConfigService: AppConfigService,
+    private readonly jwtService: JwtService,
   ) {}
+
+  async login(
+    { email, password }: AdminLoginDto,
+    requestOrigin: string,
+  ): Promise<AdminAuthResponseDto> {
+    // 1. 로그인 시도 제한
+    const isLocked = await this.loginAttemptService.isLocked(email);
+    if (isLocked) throw new UnauthorizedException('로그인 시도 초과, 잠시 후 다시 시도해주세요.');
+
+    // 2. 이메일로 어드민 조회
+    const admin = await this.adminRepository.findOne({ where: { email } });
+    if (!admin) {
+      await this.loginAttemptService.recordFailure(email);
+      throw new UnauthorizedException('이메일 또는 비밀번호가 일치하지 않습니다.');
+    }
+
+    // 3. 패스워드 검증
+    const isMatch = await PasswordUtil.compare(password, admin.password);
+    if (!isMatch) {
+      const attempts = await this.loginAttemptService.recordFailure(email);
+      if (attempts >= 5)
+        throw new UnauthorizedException('로그인 시도 초과, 계정이 임시 잠금되었습니다.');
+      throw new UnauthorizedException('이메일 또는 비밀번호가 일치하지 않습니다.');
+    }
+
+    // 4. 로그인 성공! 실패 시도 초기화
+    await this.loginAttemptService.resetAttempts(email);
+
+    // 5. 토큰 생성
+    const payload = { sub: admin.id, role: admin.role, email: admin.email };
+    const accessToken = this.jwtService.sign(payload, {
+      expiresIn: this.appConfigService.adminAccessExpiresIn ?? '',
+      secret: this.appConfigService.adminJwtSecret ?? '',
+    });
+    const refreshToken = this.jwtService.sign(payload, {
+      expiresIn: this.appConfigService.adminJwtRefreshExpiresIn ?? '',
+      secret: this.appConfigService.adminJwtRefreshSecret ?? '',
+    });
+
+    // 6. 반환
+    return {
+      accessToken,
+      refreshToken,
+      admin: new AdminResponseDto(admin),
+    };
+  }
 
   private async getAdminOrFail(id: number): Promise<Admin> {
     const admin = await this.adminRepository.findOne({ where: { id } });

@@ -11,7 +11,7 @@ import {
   UseGuards,
   ParseIntPipe,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags, ApiParam } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags, ApiParam, ApiBody } from '@nestjs/swagger';
 import { Request } from 'express';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { AdminRoles } from './decorators/admin-roles.decorator';
@@ -25,6 +25,8 @@ import { AdminLogService } from './logs/admin-log.service';
 import { ChangePasswordDto } from './dto/change-password-admin.dto';
 import { ResetPasswordDto } from './dto/reset-password-admin.dto';
 import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
+import { AdminLoginDto } from './dto/login-admin.dto';
+import { AdminAuthResponseDto } from './dto/admin-auth-response.dto';
 
 @ApiTags('admin')
 @ApiBearerAuth('JWT-auth')
@@ -130,18 +132,6 @@ export class AdminController {
     return this.adminService.resetAdminPassword(id, dto, request);
   }
 
-  @Post('login')
-  @ApiOperation({ summary: '관리자 로그인', description: '관리자 로그인을 처리합니다.' })
-  @ApiResponse({ status: 200, description: '로그인 성공', type: AdminResponseDto })
-  @ApiResponse({ status: 401, description: '인증 실패', type: ErrorResponseDto })
-  async logAdminLogin(
-    @Body('email') email: string,
-    @Body('password') password: string,
-    @Req() request: Request,
-  ): Promise<AdminResponseDto> {
-    return this.adminService.logAdminLogin(email, password, request);
-  }
-
   @Post('logout')
   @ApiOperation({ summary: '관리자 로그아웃', description: '관리자 로그아웃을 처리합니다.' })
   @ApiResponse({ status: 200, description: '로그아웃 성공', type: Object })
@@ -150,5 +140,18 @@ export class AdminController {
     @Req() request: Request,
   ): Promise<{ message: string }> {
     return this.adminService.logAdminLogout(adminId, request);
+  }
+
+  @Post('login')
+  @ApiOperation({ summary: '관리자 로그인', description: '관리자 로그인을 처리합니다.' })
+  @ApiResponse({ status: 200, description: '로그인 성공', type: AdminAuthResponseDto })
+  @ApiResponse({ status: 401, description: '인증 실패', type: ErrorResponseDto })
+  @ApiBody({ type: AdminLoginDto })
+  async login(
+    @Body() dto: AdminLoginDto,
+    @Req() req,
+  ): Promise<AdminAuthResponseDto> {
+    const origin = req.headers.origin || '';
+    return this.adminService.login(dto, origin);
   }
 }
