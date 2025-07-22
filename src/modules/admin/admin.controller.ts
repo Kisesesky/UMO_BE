@@ -27,6 +27,7 @@ import { ResetPasswordDto } from './dto/reset-password-admin.dto';
 import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 import { AdminLoginDto } from './dto/login-admin.dto';
 import { AdminAuthResponseDto } from './dto/admin-auth-response.dto';
+import { Public } from 'src/common/decorators/public.decorator';
 
 @ApiTags('admin')
 @ApiBearerAuth('JWT-auth')
@@ -152,6 +153,7 @@ export class AdminController {
   }
 
   @Post('login')
+  @Public()
   @ApiOperation({ summary: '관리자 로그인', description: '관리자 로그인을 처리합니다.' })
   @ApiResponse({ status: 200, description: '로그인 성공', type: AdminAuthResponseDto })
   @ApiResponse({ status: 401, description: '인증 실패', type: ErrorResponseDto })

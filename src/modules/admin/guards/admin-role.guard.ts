@@ -8,19 +8,20 @@ export class AdminRolesGuard implements CanActivate {
   constructor(private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
+    // Public Route exception
+    if (this.reflector.getAllAndOverride<boolean>('isPublic', [
+      context.getHandler(), context.getClass(),
+    ])) {
+      return true;
+    }
+    // requireRoles Check
     const requiredRoles = this.reflector.getAllAndOverride<string[]>(ADMIN_ROLES_KEY, [
       context.getHandler(),
       context.getClass(),
     ]);
-    if (!requiredRoles) {
-      // 역할 미지정 시 접근 허용하지 않음
-      return false;
-    }
-    const request = context.switchToHttp().getRequest();
-    const user = request.user;
-
-    if (!user || !user.role) return false;
-
-    return requiredRoles.includes(user.role);
+    // 역할 미지정 시 접근 허용하지 않음
+    if (!requiredRoles) return false;
+    const { user } = context.switchToHttp().getRequest();
+    return !!user?.role && requiredRoles.includes(user.role);
   }
 }
