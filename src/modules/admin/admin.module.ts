@@ -30,6 +30,6 @@ import { AdminStatsService } from './stats/admin-stats.service';
   ],
   controllers: [AdminController, AdminStatsController],
   providers: [AdminService, AdminRolesGuard, AdminLogService, AdminStatsService, LoginAttemptService],
-  exports: [LoginAttemptService],
+  exports: [AdminService,LoginAttemptService],
 })
 export class AdminModule {}

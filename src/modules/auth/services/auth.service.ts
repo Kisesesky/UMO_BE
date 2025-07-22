@@ -213,6 +213,7 @@ export class AuthService {
         const url = new URL(
           requestDomain.startsWith('http') ? requestDomain : `https://${requestDomain}`,
         );
+        this.logger.debug(`Setting cookie options for domain: ${requestDomain}`);
         const parsedDomain = url.hostname.replace(/^www\./, '');
         // 프론트 도메인과 서버 도메인이 다르면 domain 설정하지 않음
         if (parsedDomain.endsWith('everyday-umo.site')) {

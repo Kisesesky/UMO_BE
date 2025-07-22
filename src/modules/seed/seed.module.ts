@@ -11,6 +11,7 @@ import { User } from '../users/entities/user.entity';
 import { Station } from '../stations/entities/station.entity';
 import { Umbrella } from '../umbrellas/entities/umbrella.entity';
 import { Product } from '../products/entities/product.entity';
+import { AdminModule } from '../admin/admin.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { Product } from '../products/entities/product.entity';
     UmbrellasModule,
     ProductsModule,
     WalletsModule,
+    AdminModule,
   ],
   providers: [SeedService],
   exports: [SeedService],

@@ -81,7 +81,7 @@ export class EmailCheckVerificationService {
         ],
       });
 
-      if(process.env.NODE_ENV === 'dev') {
+      if(process.env.NODE_ENV === 'development') {
         this.logger.log(`인증코드: ${token}`)
       }
     } catch (error) {

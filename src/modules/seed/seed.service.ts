@@ -16,6 +16,9 @@ import { Umbrella } from '../umbrellas/entities/umbrella.entity';
 import { Product } from '../products/entities/product.entity'; // Product 엔티티 임포트
 import * as fs from 'fs';
 import * as path from 'path';
+import { ADMINS_SEED_DATA } from './data/admins.data';
+import { Admin } from '../admin/entities/admin.entity';
+import { AdminService } from '../admin/services/admin.service';
 
 @Injectable()
 export class SeedService implements OnModuleInit {
@@ -28,6 +31,7 @@ export class SeedService implements OnModuleInit {
     private readonly umbrellasService: UmbrellasService,
     private readonly productsService: ProductsService, // ProductsService 주입
     private readonly walletsService: WalletsService, // WalletsService 주입
+    private readonly adminsService: AdminService,
   ) {}
 
   async onModuleInit() {
@@ -42,6 +46,12 @@ export class SeedService implements OnModuleInit {
     // 시딩 순서 중요: User -> Station -> Product -> Umbrella
     try {
       await this.seedUsers();
+    } catch (error) {
+      this.logger.error(`❌ User seeding failed: ${error.message}`, error.stack);
+    }
+
+    try {
+      await this.seedAdmins();
     } catch (error) {
       this.logger.error(`❌ User seeding failed: ${error.message}`, error.stack);
     }
@@ -66,6 +76,21 @@ export class SeedService implements OnModuleInit {
     }
     
     this.logger.log('✅ Data seeding completed!');
+  }
+
+  private async seedAdmins() {
+    const adminRepository = this.dataSource.getRepository(Admin);
+    const count = await adminRepository.count();
+    if (count === 0) {
+      for (const adminData of ADMINS_SEED_DATA) {
+        try {
+          // 반드시 AdminService.createAdmin을 호출 (해싱, 유니크체크, 로그 등)
+          await this.adminsService.createAdmin(adminData);
+        } catch (e) {
+          this.logger.error(`Error seeding admin ${adminData.email}: ${e.message}`);
+        }
+      }
+    }
   }
 
   private async seedUsers() {

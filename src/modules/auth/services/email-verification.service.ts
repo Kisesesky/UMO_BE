@@ -75,7 +75,7 @@ export class EmailVerificationService {
       };
       await this.transporter.sendMail(mailOptions);
 
-      if(process.env.NODE_ENV === 'dev') {
+      if(process.env.NODE_ENV === 'development') {
         this.logger.log(`인증코드: ${code}`)
       }
     } catch (error) {

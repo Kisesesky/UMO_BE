@@ -33,7 +33,7 @@ export class AdminService {
     return admin;
   }
 
-  async createAdmin(createAdminDto: CreateAdminDto, request: Request): Promise<AdminResponseDto> {
+  async createAdmin(createAdminDto: CreateAdminDto, request?: Request): Promise<AdminResponseDto> {
     const exists = await this.adminRepository.findOne({
       where: { email: createAdminDto.email },
     });
@@ -53,8 +53,8 @@ export class AdminService {
     await this.adminLogService.logAction({
       adminId: savedAdmin.id,
       action: ADMIN_LOG_ACTION.CREATE,
-      ipAddress: getClientIp(request),
-      userAgent: getUserAgent(request),
+      ipAddress: request ? getClientIp(request) : 'seed-script',
+      userAgent: request ? getUserAgent(request) : 'seed-script',
     });
 
     return new AdminResponseDto(savedAdmin);

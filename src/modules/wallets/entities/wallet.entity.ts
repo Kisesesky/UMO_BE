@@ -14,7 +14,9 @@ export class Wallet extends BaseEntity {
   @Column({ unique: true, name: 'user_id' })
   userId: number;
 
-  @OneToOne(() => User, user => user.wallet)
+  @OneToOne(() => User, user => user.wallet, {
+    onDelete: 'CASCADE'
+  })
   @JoinColumn({ name: 'user_id' })
   user: User;
 }

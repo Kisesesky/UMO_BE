@@ -178,7 +178,7 @@ src/
 │   │   ├── logs/
 │   │   ├── notifications/
 │   │   ├── service/
-│   │   └── stat/       
+│   │   ├── stat/       
 │   │   ├── admin.controller.ts
 │   │   └── admin.module.ts      
 │   │ 
@@ -201,13 +201,13 @@ src/
 │   │     
 │   ├── locations/                              # 위치 모듈
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
 │   │   ├── locations.controller.ts
 │   │   ├── locations.module.ts
 │   │   └── locations.service.ts       
 │   │     
 │   ├── notification/                           # 알림 모듈
-│   │   └── dto/
+│   │   ├── dto/
 │   │   ├── notification.module.ts
 │   │   ├── adnotificationmin.scheduler.ts
 │   │   └── notification.service.ts       
@@ -220,14 +220,14 @@ src/
 │   │   └── orders.service.ts       
 │   │     
 │   ├── payments/                               # 결제 모듈
-│   │   └── dto/     
+│   │   ├── dto/     
 │   │   ├── payments.controller.ts
 │   │   ├── payments.module.ts
 │   │   └── payments.service.ts       
 │   │     
 │   ├── products/                               # 상품 모듈
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
 │   │   ├── products.controller.ts
 │   │   ├── products.module.ts
 │   │   └── products.service.ts 
@@ -243,13 +243,13 @@ src/
 │   │   └── rentals.service.ts 
 │   │
 │   ├── seed/                                   # 데이터 시딩
-│   │   └── data/
+│   │   ├── data/
 │   │   ├── seed.module.ts
 │   │   └── seed.service.ts 
 │   │         
 │   ├── stations/                               # 스테이션 모듈
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
 │   │   ├── stations.controller.ts
 │   │   ├── stations.module.ts
 │   │   └── stations.service.ts 
@@ -273,7 +273,7 @@ src/
 │   │
 │   ├── umbrellas/                              # 우산 모듈
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
 │   │   ├── umbrellas.controller.ts
 │   │   ├── umbrellas.module.ts
 │   │   └── umbrellas.service.ts 
@@ -281,7 +281,7 @@ src/
 │   ├── users/                                  # 사용자 모듈
 │   │   ├── dto/
 │   │   ├── entities/
-│   │   └── subscribers/
+│   │   ├── subscribers/
 │   │   ├── users.controller.ts
 │   │   ├── users.module.ts
 │   │   └── users.service.ts 
@@ -301,14 +301,14 @@ src/
 │   │   ├── processors/
 │   │   ├── region/
 │   │   ├── service/
-│   │   └── utils/    
+│   │   ├── utils/    
 │   │   ├── weather.controller.ts
 │   │   ├── weather.module.ts
 │   │   └── weather.scheduler.ts
 │   │   
 │   └── websocket/                              # 웹소켓 모듈
 │       ├── dto/
-│       └── events/
+│       ├── events/
 │       ├── websocket.gateway.ts
 │       ├── websocket.module.ts
 │       └── websocket.service.ts
