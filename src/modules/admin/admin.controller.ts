@@ -38,6 +38,15 @@ export class AdminController {
     private readonly adminLogService: AdminLogService,
   ) {}
 
+  @Get('me')
+  @ApiOperation({ summary: '내 프로필 조회', description: '접속한 관리자 자신의 프로필을 반환합니다.' })
+  @ApiResponse({ status: 200, description: '본인 정보', type: AdminResponseDto })
+  async getMe(@Req() req): Promise<AdminResponseDto> {
+    // JWT payload의 sub가 보통 admin.id
+    const adminId = req.user.sub;
+    return this.adminService.getAdminById(adminId);
+  }
+
   @AdminRoles(ADMIN_ROLE.SUPER_ADMIN)
   @Post()
   @ApiOperation({ summary: '관리자 생성', description: '새로운 관리자를 생성합니다.' })
