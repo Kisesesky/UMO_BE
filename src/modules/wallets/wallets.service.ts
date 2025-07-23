@@ -36,6 +36,10 @@ export class WalletsService {
     return await this.walletRepository.save(wallet);
   }
 
+  async deactivateWallet(userId: number) {
+    await this.walletRepository.softDelete({ user: { id: userId } });
+  }
+
   // --- 츄르 (Churu) 관련 메서드 ---
   async depositChuru(userId: number, amount: number): Promise<Wallet> {
     if (amount <= 0) throw new InvalidAmountException();

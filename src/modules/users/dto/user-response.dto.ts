@@ -14,6 +14,9 @@ export class UserResponseDto extends BaseResponseDto {
   @ApiProperty({ example: 'test@example.com', description: '사용자 이메일', required: false })
   email: string;
 
+  @ApiProperty({ description: '프로필 이미지 URL', required: false, example: 'assets/character/umo-face2.png' })
+  profileImage?: string;
+
   @ApiProperty({ example: 'USER', enum: USER_ROLE_VALUES, description: '사용자 역할' })
   role: UserRole;
 
@@ -33,6 +36,7 @@ export class UserResponseDto extends BaseResponseDto {
     this.email = user.email;
     this.role = user.role;
     this.status = user.status;
+    this.profileImage = user.profileImage;
     
     // 지갑 정보가 있으면 walletId 설정
     if (user.wallet) {

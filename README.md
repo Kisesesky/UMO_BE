@@ -89,7 +89,7 @@ src/
 ├── common/                                      # 공통 컴포넌트
 │   ├── constants/                               # 상수 정의
 │   │   ├── admin-log-action-status.ts
-│   │   ├── admin-status.ts
+│   │   ├── admin-role.ts
 │   │   ├── notification-status.ts
 │   │   ├── order-status.ts
 │   │   ├── region-mappings.ts
@@ -100,6 +100,7 @@ src/
 │   │   ├── user-role.ts
 │   │   └── user-status.ts
 │   ├── decorators/                              # 커스텀 데코레이터
+│   │   ├── public.decorator.ts
 │   │   ├── request-origin.decorator.ts
 │   │   ├── request-user.decorator.ts
 │   │   └── roles.decorator.ts

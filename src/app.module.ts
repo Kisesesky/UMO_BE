@@ -29,6 +29,7 @@ import { WebsocketModule } from './modules/websocket/websocket.module';
 import { GcsModule } from './modules/gcs/gcs.module';
 import { LocationsModule } from './modules/locations/locations.module';
 import * as winston from 'winston'
+import { InviteCodeModule } from './modules/invites/invite-code.module';
 
 @Module({
   imports: [
@@ -64,6 +65,7 @@ import * as winston from 'winston'
     ThrottlerConfigModule,
     GcsModule,
     LocationsModule,
+    InviteCodeModule,
   ],
   controllers: [AppController],
   providers: [

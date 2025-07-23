@@ -9,6 +9,6 @@ import { GcsConfigModule } from 'src/config/gcs/config.module';
   imports: [GcsConfigModule],
   controllers: [GcsServiceController],
   providers: [GcsService, GcsConfigService],
-  exports: [GcsService, GcsConfigService],
+  exports: [GcsService],
 })
 export class GcsModule {}

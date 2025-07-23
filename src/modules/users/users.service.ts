@@ -1,5 +1,5 @@
 // src/modules/users/users.service.ts
-import { Injectable, Logger } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
@@ -16,6 +16,8 @@ import {
   UserPendingVerificationException,
 } from 'src/common/exceptions/user.exceptions';
 import { USER_ROLE } from 'src/common/constants/user-role';
+import { PasswordUtil } from 'src/common/utils/password-util';
+import { InviteCodeService } from '../invites/invite-code.service';
 
 @Injectable()
 export class UsersService {
@@ -25,6 +27,7 @@ export class UsersService {
     @InjectRepository(User)
     private usersRepository: Repository<User>,
     private walletsService: WalletsService,
+    private inviteCodeService: InviteCodeService
   ) {}
 
   async findAll(options: { page: number; limit: number; status?: string }): Promise<User[]> {
@@ -87,6 +90,7 @@ export class UsersService {
 
     // 지갑 생성 (필요시)
     await this.walletsService.createWallet(savedUser.id);
+    await this.inviteCodeService.generateInviteCodeForUser(savedUser);
 
     return savedUser;
   }
@@ -98,10 +102,39 @@ export class UsersService {
   }
 
   async remove(id: number): Promise<void> {
-    const result = await this.usersRepository.delete(id);
-    if (result.affected === 0) throw new UserNotFoundException();
-    // 필요하다면 지갑 등 연관 데이터도 함께 삭제
+    const user = await this.findUserById(id);
+    await this.walletsService.deactivateWallet(user.id);
+    await this.usersRepository.softDelete(id);
   }
+
+  async changePassword(email: string, currentPassword: string, newPassword: string, confirmPassword: string): Promise<string> {
+    // 1. 유저 존재 확인
+    const user = await this.findByEmail(email);
+    if (!user) throw new UserNotFoundException();
+  
+    // 2. 현재 비밀번호 일치 검증
+    if (!(await PasswordUtil.compare(currentPassword, user.password))) {
+      throw new UnauthorizedException('현재 비밀번호가 일치하지 않습니다.');
+    }
+  
+    // 3. 새 비밀번호 2회 입력 확인
+    if (newPassword !== confirmPassword) {
+      throw new BadRequestException('새 비밀번호가 일치하지 않습니다.');
+    }
+  
+    // 4. 신규 비밀번호 보안 검증
+    PasswordUtil.validatePassword(newPassword);
+  
+    // 추후 확장: 동일 비번/최근 비번 기록 검사 등...
+  
+    // 5. 비밀번호 업데이트
+    const hashedPassword = await PasswordUtil.hash(newPassword);
+    await this.updatePassword(email, hashedPassword);
+  
+    // 6. 성공 메시지(테스트나 client용)
+    return '비밀번호가 성공적으로 변경되었습니다.';
+  }
+  
 
   // 사용자 상태 검증 메서드
   validateUserStatus(user: User): void {

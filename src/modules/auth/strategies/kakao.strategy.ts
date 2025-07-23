@@ -1,10 +1,10 @@
 // src/auth/strategies/kakao.strategy.ts
+import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-kakao';
-import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
+import { REGISTER_STATUS } from 'src/common/constants/register-status';
 import { SocialConfigService } from 'src/config/social/config.service';
 import { UsersService } from 'src/modules/users/users.service';
-import { RegisterStatus, REGISTER_STATUS } from 'src/common/constants/register-status';
 
 @Injectable()
 export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
@@ -14,16 +14,17 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
     private readonly socialConfigService: SocialConfigService,
     private readonly usersService: UsersService,
   ) {
+    const { kakaoClientId, kakaoClientSecret, kakaoCallbackUrl } = socialConfigService;
+
+    if (!kakaoClientId || !kakaoClientSecret || !kakaoCallbackUrl) {
+      throw new Error('카카오 소셜 로그인 설정이 누락되었습니다.');
+    }
+
     super({
       clientID: socialConfigService.kakaoClientId ?? '',
       clientSecret: socialConfigService.kakaoClientSecret ?? '',
       callbackURL: socialConfigService.kakaoCallbackUrl ?? '',
     });
-
-    const { kakaoClientId, kakaoClientSecret, kakaoCallbackUrl } = socialConfigService;
-    if (!kakaoClientId || !kakaoClientSecret || !kakaoCallbackUrl) {
-      throw new Error('카카오 소셜 로그인 설정이 누락되었습니다.');
-    }
   }
 
   async validate(
@@ -33,11 +34,10 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
     done: Function,
   ) {
     try {
-      const { id, username, _json } = profile;
+      const { id, _json } = profile;
       const kakaoAccount = _json.kakao_account;
       const email = kakaoAccount?.email;
-      
-      // 이메일이 없는 경우 처리
+
       if (!email) {
         this.logger.error('[Kakao Validate] 카카오 프로필에 이메일 없음.');
         return done(
@@ -46,13 +46,22 @@ export class KakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
           ),
         );
       }
-      
-      // 기존 사용자 찾기 또는 새 사용자 생성
+
+      const name = 
+        kakaoAccount?.profile?.nickname || 
+        _json?.properties?.nickname || 
+        (email ? email.split('@')[0] : '사용자');
+      const profileImage = 
+        kakaoAccount?.profile?.profile_image_url ||
+        _json?.properties?.profile_image || 
+        '';
+
       const user = await this.usersService.findOrCreateSocialUser({
         provider: REGISTER_STATUS.KAKAO,
         socialId: id.toString(),
-        email: email,
-        name: username || kakaoAccount?.profile?.nickname || email.split('@')[0],
+        email,
+        name,
+        profileImage,
       });
       
       return done(null, user);
