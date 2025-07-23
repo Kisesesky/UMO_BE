@@ -22,7 +22,7 @@ import { AdminRolesGuard } from './guards/admin-role.guard';
 import { ADMIN_ROLE } from '../../common/constants/admin-role';
 import { AdminResponseDto } from './dto/admin-response.dto';
 import { AdminLogService } from './logs/admin-log.service';
-import { ChangePasswordDto } from './dto/change-password-admin.dto';
+import { AdminChangePasswordDto } from './dto/admin-change-password.dto';
 import { ResetPasswordDto } from './dto/reset-password-admin.dto';
 import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 import { AdminLoginDto } from './dto/login-admin.dto';
@@ -122,7 +122,7 @@ export class AdminController {
   @ApiResponse({ status: 400, description: '잘못된 요청', type: ErrorResponseDto })
   async changeAdminPassword(
     @Param('id', ParseIntPipe) id: number,
-    @Body() dto: ChangePasswordDto,
+    @Body() dto: AdminChangePasswordDto,
     @Req() request: Request,
   ): Promise<{ message: string }> {
     return this.adminService.changeAdminPassword(id, dto, request);

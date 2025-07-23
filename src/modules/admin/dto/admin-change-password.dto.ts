@@ -1,8 +1,8 @@
-// src/modules/admin/dto/change-password-admin.dto.ts
+// src/modules/admin/dto/admin-changepassword.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, MinLength, Matches } from 'class-validator';
 
-export class ChangePasswordDto {
+export class AdminChangePasswordDto {
   @ApiProperty({ description: '현재 비밀번호' })
   @IsString()
   currentPassword: string;

@@ -1,7 +1,7 @@
-// src/modules/users/dto/change-password.dto.ts
+// src/modules/users/dto/user-change-password.dto.ts
 import { IsString, MinLength } from 'class-validator';
 
-export class ChangePasswordDto {
+export class UserChangePasswordDto {
   @IsString()
   currentPassword: string;
 

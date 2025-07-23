@@ -12,7 +12,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { UserResponseDto } from './dto/user-response.dto';
 import { UsersService } from './users.service';
 import { RequestUser } from 'src/common/decorators/request-user.decorator';
-import { ChangePasswordDto } from './dto/change-password.dto';
+import { UserChangePasswordDto } from './dto/user-change-password.dto';
 import { GcsService } from './../gcs/gcs.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { UpdateProfileDto } from './dto/update-profile.dto';
@@ -150,7 +150,7 @@ export class UsersController {
   @ApiResponse({ status: 500, description: '서버 오류', type: ErrorResponseDto })
   async changeMyPassword(
     @RequestUser() user: UserResponseDto,
-    @Body() body: ChangePasswordDto
+    @Body() body: UserChangePasswordDto
   ): Promise<{ message: string }> {
     // 회원 전용: 본인만 가능!
     await this.usersService.changePassword(

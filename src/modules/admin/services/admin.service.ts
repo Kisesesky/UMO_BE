@@ -16,7 +16,7 @@ import { Request } from 'express';
 import { ADMIN_LOG_ACTION } from '../../../common/constants/admin-log-action-status'
 import { getClientIp, getUserAgent } from 'src/common/utils/request-util';
 import { AdminResponseDto } from '../dto/admin-response.dto';
-import { ChangePasswordDto } from '../dto/change-password-admin.dto';
+import { AdminChangePasswordDto } from '../dto/admin-change-password.dto';
 import { ResetPasswordDto } from '../dto/reset-password-admin.dto';
 import { AdminAuthResponseDto } from '../dto/admin-auth-response.dto';
 import { JwtService } from '@nestjs/jwt';
@@ -179,7 +179,7 @@ export class AdminService {
 
   async changeAdminPassword(
     adminId: number,
-    dto: ChangePasswordDto,
+    dto: AdminChangePasswordDto,
     request: Request,
   ): Promise<{ message: string }> {
     const admin = await this.getAdminOrFail(adminId);
