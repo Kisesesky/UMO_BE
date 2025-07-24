@@ -4,11 +4,24 @@ import { GcsService } from './gcs.service';
 import { GcsConfigService } from 'src/config/gcs/config.service';
 import { GcsServiceController } from './gcs.controller';
 import { GcsConfigModule } from 'src/config/gcs/config.module';
+import { AppConfigService } from 'src/config/app/config.service'; 
 
 @Module({
   imports: [GcsConfigModule],
   controllers: [GcsServiceController],
-  providers: [GcsService, GcsConfigService],
+  providers: [
+    {
+      provide: GcsService,
+      useFactory: async (
+        appConfigService: AppConfigService,
+        gcsConfig: GcsConfigService,
+        ) => {
+        const keyFile = await gcsConfig.getKeyFilePath();
+        return new GcsService(appConfigService, gcsConfig, keyFile);
+      },
+      inject: [AppConfigService, GcsConfigService],
+    },
+  ],
   exports: [GcsService],
 })
 export class GcsModule {}

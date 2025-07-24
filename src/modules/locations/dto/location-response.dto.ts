@@ -3,10 +3,17 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Location } from '../entities/location.entity';
 
 export class LocationResponseDto {
-  @ApiProperty() id: number;
-  @ApiProperty() latitude: number;
-  @ApiProperty() longitude: number;
-  @ApiProperty() createdAt: Date;
+  @ApiProperty() 
+  id: number;
+
+  @ApiProperty() 
+  latitude: number;
+
+  @ApiProperty() 
+  longitude: number;
+  
+  @ApiProperty() 
+  createdAt: Date;
 
   constructor(loc: Location) {
     this.id = loc.id;

@@ -76,8 +76,8 @@ export class EmailCheckVerificationService {
         subject,
         html,
         attachments: [
-          { filename: 'umo-logo.png', path: 'assets/logo/umo-logo.png', cid: 'umo-logo' },
-          { filename: 'umo-face2.png', path: 'assets/character/umo-face2.png', cid: 'umo-face2' }
+          { filename: 'umo-logo.png', path: this.appConfigService.defaultLogoImg, cid: 'umo-logo' },
+          { filename: 'umo-face2.png', path: this.appConfigService.defaultProfileImg, cid: 'umo-face2' }
         ],
       });
 

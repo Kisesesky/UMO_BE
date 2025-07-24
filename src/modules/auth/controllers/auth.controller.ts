@@ -1,28 +1,26 @@
 // src/auth/auth.controller.ts
-import { Controller, Post, Body, UseGuards, Request, HttpCode, Res, Req, Get, UnauthorizedException, UseInterceptors, BadRequestException, UploadedFile, Patch } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiCookieAuth, ApiHeader, ApiBody, ApiConsumes } from '@nestjs/swagger';
-import { AuthService } from '../services/auth.service';
-import { LoginDto } from '../dto/login.dto';
-import { RegisterDto } from '../dto/register.dto';
-import { AuthResponseDto } from '../dto/auth-response.dto';
-import { UserResponseDto } from '../../users/dto/user-response.dto';
-import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
+import { BadRequestException, Body, Controller, Get, HttpCode, Patch, Post, Req, Request, Res, UnauthorizedException, UploadedFile, UseGuards, UseInterceptors } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiBody, ApiConsumes, ApiCookieAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Response } from 'express';
-import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { RequestOrigin } from 'src/common/decorators/request-origin.decorator';
 import { RequestUser } from 'src/common/decorators/request-user.decorator';
-import { GoogleAuthGuard } from '../guards/google-auth.guard';
-import { AuthGuard } from '@nestjs/passport';
-import { AppConfigService } from 'src/config/app/config.service';
-import { KakaoAuthGuard } from '../guards/kakao-auth.guard';
-import { PasswordCheckDto } from '../dto/password-check.dto';
+import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 import { TimeUtil } from 'src/common/utils/time-util';
-import { NaverAuthGuard } from '../guards/naver-auth.guard';
+import { AppConfigService } from 'src/config/app/config.service';
 import { GcsService } from 'src/modules/gcs/gcs.service';
-import { FileInterceptor } from '@nestjs/platform-express';
 import { UsersService } from 'src/modules/users/users.service';
-import { RegisterStatus } from 'src/common/constants/register-status';
+import { UserResponseDto } from '../../users/dto/user-response.dto';
+import { AuthResponseDto } from '../dto/auth-response.dto';
+import { LoginDto } from '../dto/login.dto';
+import { PasswordCheckDto } from '../dto/password-check.dto';
+import { RegisterDto } from '../dto/register.dto';
 import { SocialTermsAgreeDto } from '../dto/social-termsagree.dto';
+import { GoogleAuthGuard } from '../guards/google-auth.guard';
+import { JwtAuthGuard } from '../guards/jwt-auth.guard';
+import { KakaoAuthGuard } from '../guards/kakao-auth.guard';
+import { NaverAuthGuard } from '../guards/naver-auth.guard';
+import { AuthService } from '../services/auth.service';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -108,7 +106,7 @@ export class AuthController {
     // 1. 파일이 있으면 GCS 업로드, 없으면 기본 이미지 사용
     const profileImageUrl = file
     ? await this.gcsService.uploadFile(file)
-    : 'assets/character/umo-face2.png';
+    : this.appConfigService.defaultProfileImg;
 
     return this.authService.register({
       ...registerDto,

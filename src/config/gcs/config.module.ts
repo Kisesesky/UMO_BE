@@ -13,6 +13,7 @@ import { GcsConfigService } from './config.service';
       load: [configuration],
       validationSchema: Joi.object({
         GCS_STORAGE_KEYFILE: Joi.string().required(),
+        GCS_SECRET_NAME: Joi.string().required(),
         GCS_STORAGE_BUCKET: Joi.string().required(),
         GCS_STORAGE_PROJECT_ID: Joi.string().required(),
       }),

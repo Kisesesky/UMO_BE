@@ -13,5 +13,8 @@ export default registerAs('app', () => ({
   port: parseInt(process.env.PORT || '3000', 10),
   frontendUrl: process.env.FRONTEND_URL,
   gmailUser: process.env.GMAIL_USER,
-  gmailPass: process.env.GMAIL_PASS
+  gmailPass: process.env.GMAIL_PASS,
+  defaultProfileImg: process.env.DEFAULT_PROFILE_IMAGE,
+  defaultMainImg: process.env.DEFAULT_MAIN_IMAGE,
+  defaultLogoImg: process.env.DEFAULT_LOGO_IMAGE,
 }));

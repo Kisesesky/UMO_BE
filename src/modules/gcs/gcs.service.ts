@@ -3,6 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Storage } from '@google-cloud/storage';
 import { GcsConfigService } from 'src/config/gcs/config.service';
 import { v4 as uuidv4 } from 'uuid';
+import { AppConfigService } from 'src/config/app/config.service';
 
 @Injectable()
 export class GcsService {
@@ -10,10 +11,14 @@ export class GcsService {
   private storage: Storage;
   private bucketName: string;
 
-  constructor(private readonly gcsConfig: GcsConfigService) {
+  constructor(
+    private readonly appConfigService: AppConfigService,
+    private readonly gcsConfig: GcsConfigService,
+    keyFilename: string,
+    ) {
     this.storage = new Storage({
       projectId: this.gcsConfig.gcsProjectId!,
-      keyFilename: this.gcsConfig.gcsKeyFile!,
+      keyFilename,
     });
     this.bucketName = this.gcsConfig.gcsBucketName!;
   }
@@ -32,7 +37,7 @@ export class GcsService {
     } catch (error) {
       this.logger.error('GCS 파일 업로드 실패', error.stack || error);
       // 정책에 따라 예외 throw 또는 기본 이미지 반환
-      return 'assets/character/umo-face2.png';
+      return this.appConfigService.defaultProfileImg;
     }
   }
 }

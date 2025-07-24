@@ -54,4 +54,16 @@ export class AppConfigService {
   get gmailPass() {
     return this.configService.get<string>('app.gmailPass');
   }
+
+  get defaultProfileImg() {
+    return this.configService.get<string>('app.defaultProfileImg');
+  }
+
+  get defaultMainImg() {
+    return this.configService.get<string>('app.defaultMainImg');
+  }
+
+  get defaultLogoImg() {
+    return this.configService.get<string>('app.defaultLogoImg');
+  }
 }
