@@ -5,9 +5,10 @@ import { GcsConfigService } from 'src/config/gcs/config.service';
 import { GcsServiceController } from './gcs.controller';
 import { GcsConfigModule } from 'src/config/gcs/config.module';
 import { AppConfigService } from 'src/config/app/config.service'; 
+import { AppConfigModule } from 'src/config/app/config.module';
 
 @Module({
-  imports: [GcsConfigModule],
+  imports: [GcsConfigModule, AppConfigModule],
   controllers: [GcsServiceController],
   providers: [
     {
