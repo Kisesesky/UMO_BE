@@ -1,5 +1,5 @@
 // src/common/entities/base.entity.ts
-import { PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger'; // 스웨거 문서화를 위해 추가
 
 export abstract class BaseEntity { // abstract로 선언하여 직접 인스턴스화되지 않도록 함
@@ -14,4 +14,8 @@ export abstract class BaseEntity { // abstract로 선언하여 직접 인스턴�
   @ApiProperty({ example: '2023-10-26T12:35:00.000Z', description: '마지막 업데이트 시간' })
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @ApiProperty({ example: '2023-10-26T15:00:00.000Z', description: '삭제된 시간', required: false })
+  @DeleteDateColumn({ nullable: true })
+  deletedAt?: Date;
 }

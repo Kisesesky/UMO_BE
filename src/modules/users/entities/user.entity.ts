@@ -7,7 +7,7 @@ import { InviteCode } from 'src/modules/invites/entities/invite-code.entity';
 import { Location } from 'src/modules/locations/entities/location.entity';
 import { Rental } from "src/modules/rentals/entities/rental.entity";
 import { Wallet } from "src/modules/wallets/entities/wallet.entity";
-import { Column, Entity, OneToMany, OneToOne, DeleteDateColumn } from "typeorm";
+import { Column, Entity, OneToMany, OneToOne } from "typeorm";
 
 @Entity()
 export class User extends BaseEntity {
@@ -52,7 +52,4 @@ export class User extends BaseEntity {
 
   @OneToMany(() => InviteCode, invite => invite.owner, { cascade: true })
   inviteCodes: InviteCode[];
-
-  @DeleteDateColumn({ nullable: true })
-  deletedAt?: Date;
 }
