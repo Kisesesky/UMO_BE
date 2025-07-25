@@ -1,9 +1,13 @@
 // src/modules/wallets/wallets.service.ts
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DataSource, EntityManager, Repository } from 'typeorm';
 import { Wallet } from './entities/wallet.entity';
-import { WalletNotFoundException, InsufficientBalanceException, InvalidAmountException } from 'src/common/exceptions/wallet.exceptions';
+import { WalletNotFoundException, InsufficientBalanceException, InvalidAmountException } from './exceptions/wallet.exceptions';
+import { WalletActionType, WALLET_ACTION_TYPE } from './types/action.type';
+import { WALLET_LOG_TYPE } from './types/logs.type';
+import { WalletRefType, WALLET_REF_TYPE } from './types/ref.type';
+import { WalletLogs } from './wallet-logs/entities/wallet-log.entity';
 
 @Injectable()
 export class WalletsService {
@@ -12,6 +16,9 @@ export class WalletsService {
   constructor(
     @InjectRepository(Wallet)
     private walletRepository: Repository<Wallet>,
+    @InjectRepository(WalletLogs)
+    private walletLogsRepository: Repository<WalletLogs>,
+    private readonly dataSource: DataSource,
   ) {}
 
   async findByUserId(userId: number): Promise<Wallet> {
@@ -38,6 +45,13 @@ export class WalletsService {
 
   async deactivateWallet(userId: number) {
     await this.walletRepository.softDelete({ user: { id: userId } });
+  }
+
+  async removeWallet(userId: number): Promise<void> {
+    const wallet = await this.walletRepository.findOne({ where: { userId } });
+    if (wallet) {
+      await this.walletRepository.remove(wallet);
+    }
   }
 
   // --- 츄르 (Churu) 관련 메서드 ---
@@ -117,5 +131,128 @@ export class WalletsService {
 
     this.logger.log(`사용자 ${userId}: ${realMoneyAmount}원 결제로 ${churuToReceive} 츄르 (기본: ${baseChuru}, 보너스: ${bonusChuru}) 지급 완료.`);
     return await this.walletRepository.save(wallet);
+  }
+
+  // 월렛 잔액 및 로그 조회
+  async getWallet(userId: number) {
+    return this.walletRepository.findOneOrFail({ where: { user: { id: userId } } });
+  }
+
+  async getWalletLogs(userId: number, limit = 50) {
+    const wallet = await this.walletRepository.findOneOrFail({
+      where: { user: { id: userId } },
+      relations: ['user'],
+    });
+    if (!wallet) {
+      throw new NotFoundException('지갑 정보를 찾을 수 없습니다.');
+    }
+  
+    return this.walletLogsRepository.find({
+      where: { wallet: { id: wallet.id } },
+      order: { id: 'DESC' },
+      take: limit,
+      relations: ['wallet', 'wallet.user'],
+    });
+  }
+
+  async rewardChuru(
+    userId: number,
+    amount: number,
+    action: WalletActionType = WALLET_ACTION_TYPE.EVENT,
+    refType?: WalletRefType,
+    refId?: number
+  ): Promise<Wallet> {
+    if (amount <= 0) throw new InvalidAmountException();
+  
+    return await this.dataSource.transaction(async manager => {
+      const walletRepository = manager.getRepository(Wallet);
+      const walletLogRepo = manager.getRepository(WalletLogs);
+  
+      const wallet = await walletRepository.findOneOrFail({ where: { userId } });
+      wallet.churuBalance += amount;
+      await walletRepository.save(wallet);
+  
+      await walletLogRepo.save({
+        wallet,
+        assetType: WALLET_LOG_TYPE.CHURU,
+        amount,
+        action,
+        refType,
+        refId,
+      });
+  
+      return wallet;
+    });
+  }
+  
+  // 추천 보상 지급 예시 (트랜잭션 안에서)
+  async processReferralReward(
+    refereeUserId: number,
+    referrerUserId: number,
+    refereeRewardAmount: number,
+    referrerRewardAmount: number
+  ): Promise<void> {
+    await this.dataSource.transaction(async manager => {
+      const walletRepository = manager.getRepository(Wallet);
+      const walletLogRepo = manager.getRepository(WalletLogs);
+  
+      const refereeWallet = await walletRepository.findOneOrFail({ where: { userId: refereeUserId } });
+      const referrerWallet = await walletRepository.findOneOrFail({ where: { userId: referrerUserId } });
+  
+      // 피추천인 보상 지급
+      refereeWallet.churuBalance += refereeRewardAmount;
+      await walletRepository.save(refereeWallet);
+      await walletLogRepo.save({
+        wallet: refereeWallet,
+        assetType: WALLET_LOG_TYPE.CHURU,
+        amount: refereeRewardAmount,
+        action: WALLET_ACTION_TYPE.REFERRAL_REWARD,
+        refType: WALLET_REF_TYPE.REFERRAL,
+        refId: referrerUserId,
+      });
+  
+      // 추천인 보상 지급
+      referrerWallet.churuBalance += referrerRewardAmount;
+      await walletRepository.save(referrerWallet);
+      await walletLogRepo.save({
+        wallet: referrerWallet,
+        assetType: WALLET_LOG_TYPE.CHURU,
+        amount: referrerRewardAmount,
+        action: WALLET_ACTION_TYPE.REFERRAL_REWARD,
+        refType: WALLET_REF_TYPE.REFERRAL,
+        refId: refereeUserId,
+      });
+    });
+  }
+
+  async increaseBalanceWithLog(
+    userId: number,
+    amount: number,
+    action: WalletActionType,
+    description: string,
+    refType?: WalletRefType,
+    refId?: number,
+    manager?: EntityManager
+  ): Promise<void> {
+    if (amount <= 0) throw new InvalidAmountException();
+  
+    const repo = manager?.getRepository(Wallet) ?? this.walletRepository;
+    const logRepo = manager?.getRepository(WalletLogs) ?? this.walletLogsRepository;
+  
+    const wallet = await repo.findOneOrFail({ where: { userId } });
+    wallet.churuBalance += amount;
+    await repo.save(wallet);
+  
+    await logRepo.save({
+      wallet,
+      assetType: WALLET_LOG_TYPE.CHURU,
+      amount,
+      action,
+      refType,
+      refId,
+      description,
+    });
+  
+    this.logger.log(`[${userId}] +${amount} 지급됨. action=${action}, desc=${description}`);
   }
 }

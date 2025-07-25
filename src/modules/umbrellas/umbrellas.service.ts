@@ -1,9 +1,9 @@
 // src/modules/umbrellas/umbrellas.service.ts
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UmbrellaStatus, UMBRELLA_STATUS } from 'src/common/constants/umbrella-status';
-import { UmbrellaNotFoundException, UmbrellaStatusException } from 'src/common/exceptions/umbrella.exceptions';
-import { UmbrellaMessages } from 'src/common/messages/umbrella-messages';
+import { UmbrellaStatus, UMBRELLA_STATUS } from './constants/umbrella-status';
+import { UmbrellaNotFoundException, UmbrellaStatusException } from './exceptions/umbrella.exceptions';
+import { UmbrellaMessages } from './messages/umbrella-messages';
 import { Repository } from 'typeorm';
 import { Umbrella } from './entities/umbrella.entity';
 

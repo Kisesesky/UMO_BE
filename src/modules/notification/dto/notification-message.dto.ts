@@ -1,7 +1,7 @@
 // src/modules/notification/dto/notification-message.dto.ts
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsString, IsEnum, IsOptional, IsDate, IsObject } from 'class-validator';
-import { NotificationStatus, NOTIFICATION_STATUS, NOTIFICATION_STATUS_VALUES } from "src/common/constants/notification-status";
+import { NotificationStatus, NOTIFICATION_STATUS, NOTIFICATION_STATUS_VALUES } from "../constants/notification-status";
 
 export class NotificationMessageDto {
   @ApiProperty({ example: 'f1a2b3c4-d5e6-7890-1234-56789abcdef0', description: '알림 UUID' })

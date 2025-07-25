@@ -1,10 +1,10 @@
-// src/users/dto/user-response.dto.ts
+// src/modules/users/dto/user-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-import { UserRole } from 'src/common/constants/user-role';
-import { UserStatus, USER_STATUS_VALUES } from 'src/common/constants/user-status';
+import { UserRole } from '../constants/user-role';
+import { UserStatus, USER_STATUS_VALUES } from '../constants/user-status';
 import { BaseResponseDto } from 'src/common/dto/base-response.dto';
 import { User } from '../entities/user.entity';
-import { USER_ROLE_VALUES } from '../../../common/constants/user-role';
+import { USER_ROLE_VALUES } from '../constants/user-role';
 import { RegisterStatus, REGISTER_STATUS_VALUES } from 'src/common/constants/register-status';
 
 export class UserResponseDto extends BaseResponseDto {

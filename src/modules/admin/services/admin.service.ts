@@ -1,28 +1,23 @@
 // src/modules/admin/service/admin.service.ts
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Admin } from '../entities/admin.entity';
-import { CreateAdminDto } from '../dto/create-admin.dto';
-import { UpdateAdminDto } from '../dto/update-admin.dto';
-import {
-  AdminEmailExistsException,
-  AdminLoginFailedException,
-  AdminNotFoundException,
-} from 'src/common/exceptions/admin.exceptions';
-import { AdminLogService } from '../logs/admin-log.service';
-import { PasswordUtil } from 'src/common/utils/password-util';
 import { Request } from 'express';
-import { ADMIN_LOG_ACTION } from '../../../common/constants/admin-log-action-status'
+import { AdminEmailExistsException, AdminLoginFailedException, AdminNotFoundException } from 'src/modules/admin/exceptions/admin.exceptions';
+import { PasswordUtil } from 'src/common/utils/password-util';
 import { getClientIp, getUserAgent } from 'src/common/utils/request-util';
-import { AdminResponseDto } from '../dto/admin-response.dto';
-import { AdminChangePasswordDto } from '../dto/admin-change-password.dto';
-import { ResetPasswordDto } from '../dto/reset-password-admin.dto';
+import { Repository } from 'typeorm';
+import { ADMIN_LOG_ACTION } from '../constants/admin-log-action-status';
 import { AdminAuthResponseDto } from '../dto/admin-auth-response.dto';
-import { JwtService } from '@nestjs/jwt';
+import { AdminChangePasswordDto } from '../dto/admin-change-password.dto';
+import { AdminResponseDto } from '../dto/admin-response.dto';
+import { CreateAdminDto } from '../dto/create-admin.dto';
 import { AdminLoginDto } from '../dto/login-admin.dto';
+import { ResetPasswordDto } from '../dto/reset-password-admin.dto';
+import { UpdateAdminDto } from '../dto/update-admin.dto';
+import { Admin } from '../entities/admin.entity';
+import { AdminLogService } from '../logs/admin-log.service';
+import { AdminTokenService } from './admin.token.service';
 import { LoginAttemptService } from './login-attempt.service';
-import { AppConfigService } from 'src/config/app/config.service';
 
 @Injectable()
 export class AdminService {
@@ -31,8 +26,7 @@ export class AdminService {
     private readonly adminRepository: Repository<Admin>,
     private readonly adminLogService: AdminLogService,
     private readonly loginAttemptService: LoginAttemptService,
-    private appConfigService: AppConfigService,
-    private readonly jwtService: JwtService,
+    private readonly adminTokenService: AdminTokenService,
   ) {}
 
   async login(
@@ -64,20 +58,18 @@ export class AdminService {
 
     // 5. 토큰 생성
     const payload = { sub: admin.id, role: admin.role, email: admin.email };
-    const accessToken = this.jwtService.sign(payload, {
-      expiresIn: this.appConfigService.adminAccessExpiresIn ?? '',
-      secret: this.appConfigService.adminJwtSecret ?? '',
-    });
-    const refreshToken = this.jwtService.sign(payload, {
-      expiresIn: this.appConfigService.adminJwtRefreshExpiresIn ?? '',
-      secret: this.appConfigService.adminJwtRefreshSecret ?? '',
-    });
+    const {
+      accessToken,
+      refreshToken,
+      accessOptions,
+      refreshOptions,
+    } = this.adminTokenService.makeJwtToken(payload, requestOrigin);
 
     // 6. 반환
     return {
+      admin: new AdminResponseDto(admin),
       accessToken,
       refreshToken,
-      admin: new AdminResponseDto(admin),
     };
   }
 

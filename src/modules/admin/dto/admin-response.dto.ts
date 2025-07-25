@@ -1,7 +1,7 @@
 // src/modules/admin/dto/admin-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { BaseResponseDto } from 'src/common/dto/base-response.dto';
-import { AdminRole } from 'src/common/constants/admin-role';
+import { AdminRole } from 'src/modules/admin/constants/admin-role';
 import { Admin } from '../entities/admin.entity';
 
 export class AdminResponseDto extends BaseResponseDto {

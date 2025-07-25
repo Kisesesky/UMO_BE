@@ -6,6 +6,7 @@ import { Response } from 'express';
 import { RequestOrigin } from 'src/common/decorators/request-origin.decorator';
 import { RequestUser } from 'src/common/decorators/request-user.decorator';
 import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
+import { CookieUtil } from 'src/common/utils/cookie-util';
 import { TimeUtil } from 'src/common/utils/time-util';
 import { AppConfigService } from 'src/config/app/config.service';
 import { GcsService } from 'src/modules/gcs/gcs.service';
@@ -21,6 +22,7 @@ import { JwtAuthGuard } from '../guards/jwt-auth.guard';
 import { KakaoAuthGuard } from '../guards/kakao-auth.guard';
 import { NaverAuthGuard } from '../guards/naver-auth.guard';
 import { AuthService } from '../services/auth.service';
+import { UserTokenService } from '../services/user.token.service';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -30,6 +32,7 @@ export class AuthController {
     private readonly appConfigService: AppConfigService,
     private readonly gcsService: GcsService,
     private readonly usersService: UsersService,
+    private readonly userTokenService: UserTokenService,
     ) {}
 
   @Post('login')
@@ -48,15 +51,15 @@ export class AuthController {
       throw new UnauthorizedException('이메일 또는 비밀번호가 일치하지 않습니다.');
     }
     
-    const result = await this.authService.login(user, origin);
+    const result = await this.authService.logIn(user, origin);
     
     // 쿠키 설정은 여기서 따로 수행
-    const accessOptions = this.authService.setCookieOption(
+    const accessOptions = CookieUtil.getCookieOptions(
       TimeUtil.convertExpiresInToMs(this.appConfigService.accessExpiresIn),
       origin,
       false,
     );
-    const refreshOptions = this.authService.setCookieOption(
+    const refreshOptions = CookieUtil.getCookieOptions(
       TimeUtil.convertExpiresInToMs(this.appConfigService.jwtRefreshExpiresIn),
       origin,
       true,
@@ -202,7 +205,7 @@ export class AuthController {
   
     // 약관 동의된 회원만 JWT 및 쿠키 제공 (정상 로그인)
     const { accessToken, refreshToken, accessOptions, refreshOptions } =
-      this.authService.makeJwtToken(user.email, origin);
+      this.userTokenService.makeJwtToken(user.email, origin);
   
     res.cookie('access_token', accessToken, accessOptions);
     res.cookie('refresh_token', refreshToken, refreshOptions);
@@ -241,7 +244,7 @@ export class AuthController {
   
     // 약관 동의된 회원만 JWT 및 쿠키 제공 (정상 로그인)
     const { accessToken, refreshToken, accessOptions, refreshOptions } =
-      this.authService.makeJwtToken(user.email, origin);
+      this.userTokenService.makeJwtToken(user.email, origin);
 
     res.cookie('access_token', accessToken, accessOptions);
     res.cookie('refresh_token', refreshToken, refreshOptions);
@@ -282,7 +285,7 @@ export class AuthController {
   
     // 약관 동의된 회원만 JWT 및 쿠키 제공 (정상 로그인)
     const { accessToken, refreshToken, accessOptions, refreshOptions } =
-      this.authService.makeJwtToken(user.email, origin);
+      this.userTokenService.makeJwtToken(user.email, origin);
 
     res.cookie('access_token', accessToken, accessOptions);
     res.cookie('refresh_token', refreshToken, refreshOptions);
@@ -305,7 +308,7 @@ export class AuthController {
     await this.usersService.update(user.id, user);
     // 3. JWT 발급 및 쿠키 세팅
     const { accessToken, refreshToken, accessOptions, refreshOptions } =
-      this.authService.makeJwtToken(user.email, origin);
+      this.userTokenService.makeJwtToken(user.email, origin);
 
     res.cookie('access_token', accessToken, accessOptions);
     res.cookie('refresh_token', refreshToken, refreshOptions);

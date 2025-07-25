@@ -1,5 +1,5 @@
 // src/wallets/wallets.controller.ts
-import { Controller, Get, Post, Body, Param, ParseIntPipe, UseGuards, ForbiddenException } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, ParseIntPipe, UseGuards, ForbiddenException, Req } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBearerAuth } from '@nestjs/swagger';
 import { WalletsService } from './wallets.service';
 import { DepositDto } from './dto/deposit.dto';
@@ -11,7 +11,8 @@ import { RequestUser } from 'src/common/decorators/request-user.decorator';
 import { UserResponseDto } from 'src/modules/users/dto/user-response.dto';
 import { RolesGuard } from 'src/common/guards/roles.guard';
 import { Roles } from 'src/common/decorators/roles.decorator';
-import { USER_ROLE } from 'src/common/constants/user-role';
+import { USER_ROLE } from 'src/modules/users/constants/user-role';
+import { WalletLogResponseDto } from './wallet-logs/dto/wallet-log-response.dto';
 
 @ApiTags('wallets')
 @Controller('wallets')
@@ -29,6 +30,15 @@ export class WalletsController {
   async findMyWallet(@RequestUser() user: UserResponseDto): Promise<WalletResponseDto> {
     const wallet = await this.walletsService.findByUserId(user.id);
     return new WalletResponseDto(wallet);
+  }
+
+  @Get('me/logs')
+  @UseGuards(JwtAuthGuard)
+  @ApiOperation({ summary: '내 월렛 거래내역', description: '적립/차감 내역 목록을 확인합니다.' })
+  @ApiResponse({ status: 200, type: [WalletLogResponseDto] })
+  async myLogs(@Req() req) {
+    const userId = req.user.id;
+    return this.walletsService.getWalletLogs(userId);
   }
 
   @Post('deposit/churu')

@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { Station } from './entities/station.entity';
 import { CreateStationDto } from './dto/create-station.dto';
 import { UpdateStationDto } from './dto/update-station.dto';
-import { StationNotFoundException, StationAlreadyExistsException, StationInactiveException } from 'src/common/exceptions/station.exceptions';
+import { StationNotFoundException, StationAlreadyExistsException, StationInactiveException } from './exceptions/station.exceptions';
 import { UmbrellasService } from '../umbrellas/umbrellas.service';
 
 @Injectable()

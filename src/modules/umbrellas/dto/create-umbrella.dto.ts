@@ -1,4 +1,4 @@
-// src/umbrellas/dto/create-umbrella.dto.ts
+// src/modules/umbrellas/dto/create-umbrella.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber, IsString, Min, IsOptional } from 'class-validator';
 

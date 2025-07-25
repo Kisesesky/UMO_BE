@@ -1,20 +1,18 @@
 // src/modules/auth/auth.service.ts
-import { Injectable, Logger, UnauthorizedException, InternalServerErrorException } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
-import { UsersService } from '../../users/users.service';
-import { RegisterDto } from '../dto/register.dto';
-import { PasswordUtil } from 'src/common/utils/password-util';
-import { UserEmailExistsException, UserInvalidPasswordException, UserNotFoundException, UserAccountStatusException, UserBannedException, UserSuspendedException } from 'src/common/exceptions/user.exceptions';
-import { CookieOptions } from 'express';
-import { UserResponseDto } from 'src/modules/users/dto/user-response.dto';
-import { AppConfigService } from 'src/config/app/config.service';
-import { TimeUtil } from 'src/common/utils/time-util';
-import { User } from '../../users/entities/user.entity';
-import { RegisterStatus } from 'src/common/constants/register-status';
+import { Injectable, InternalServerErrorException, Logger, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { AuthResponseDto } from '../dto/auth-response.dto';
+import { RegisterStatus } from 'src/common/constants/register-status';
+import { UserAccountStatusException, UserBannedException, UserEmailExistsException, UserInvalidPasswordException, UserNotFoundException, UserSuspendedException } from 'src/modules/users/exceptions/user.exceptions';
+import { CookieUtil } from 'src/common/utils/cookie-util';
+import { PasswordUtil } from 'src/common/utils/password-util';
 import { LoginAttemptService } from 'src/modules/admin/services/login-attempt.service';
-import { USER_STATUS } from 'src/common/constants/user-status';
+import { USER_STATUS } from 'src/modules/users/constants/user-status';
+import { UserResponseDto } from 'src/modules/users/dto/user-response.dto';
+import { User } from '../../users/entities/user.entity';
+import { UsersService } from '../../users/users.service';
+import { AuthResponseDto } from '../dto/auth-response.dto';
+import { RegisterDto } from '../dto/register.dto';
+import { UserTokenService } from './user.token.service';
 
 @Injectable()
 export class AuthService {
@@ -22,9 +20,8 @@ export class AuthService {
 
   constructor(
     private usersService: UsersService,
-    private jwtService: JwtService,
-    private appConfigService: AppConfigService,
     private loginAttemptService: LoginAttemptService,
+    private userTokenService: UserTokenService,
   ) {}
 
   async validateUser(email: string, password: string): Promise<any> {
@@ -76,13 +73,22 @@ export class AuthService {
     }
   }
 
-  async login(user: User, origin: string): Promise<AuthResponseDto> {
-    const { accessToken, refreshToken } = this.makeJwtToken(user.email, origin);
+  async logIn(user: User, origin: string): Promise<AuthResponseDto> {
+    const { accessToken, refreshToken } = this.userTokenService.makeJwtToken(user.email, origin);
   
     return {
       user: new UserResponseDto(user),
       accessToken,
       refreshToken,
+    };
+  }
+
+  logout(origin: string) {
+    const cookieOptions = CookieUtil.getCookieOptions(0, origin);
+
+    return {
+      accessOptions: cookieOptions,
+      refreshOptions: cookieOptions,
     };
   }
 
@@ -132,16 +138,11 @@ export class AuthService {
 
   async refreshToken(refreshToken: string, origin: string) {
     try {
-      const payload = this.jwtService.verify(refreshToken, {
-        secret: this.appConfigService.jwtRefreshSecret,
-      });
-      
+      const payload = this.userTokenService.verifyRefreshToken(refreshToken);
       const user = await this.usersService.findByEmail(payload.sub);
-      if (!user) {
-        throw new UserNotFoundException();
-      }
+      if (!user) throw new UserNotFoundException();
       
-      const { accessToken, accessOptions } = this.setJwtAccessToken(user.email, origin);
+      const { accessToken, accessOptions } = this.userTokenService.setJwtAccessToken(user.email, origin);
       
       return {
         user: new UserResponseDto(user),
@@ -156,95 +157,7 @@ export class AuthService {
     }
   }
 
-  makeJwtToken(email: string, origin: string) {
-    const { accessToken, accessOptions } = this.setJwtAccessToken(email, origin);
-    const { refreshToken, refreshOptions } = this.setJwtRefreshToken(email, origin);
-
-    return {
-      accessToken,
-      refreshToken,
-      accessOptions,
-      refreshOptions,
-    };
-  }
-
-  setJwtAccessToken(email: string, requestDomain: string) {
-    const payload = { sub: email };
-    const maxAge = TimeUtil.convertExpiresInToMs(this.appConfigService.accessExpiresIn);
-    const accessToken = this.jwtService.sign(payload, {
-      secret: this.appConfigService.jwtSecret ?? '',
-      expiresIn: this.appConfigService.accessExpiresIn ?? '',
-    });
-    return {
-      accessToken,
-      accessOptions: this.setCookieOption(maxAge, requestDomain, false),
-    };
-  }
-
-  setJwtRefreshToken(email: string, requestDomain: string) {
-    const payload = { sub: email };
-    const maxAge = TimeUtil.convertExpiresInToMs(this.appConfigService.jwtRefreshExpiresIn);
-    const refreshToken = this.jwtService.sign(payload, {
-      secret: this.appConfigService.jwtRefreshSecret ?? '',
-      expiresIn: this.appConfigService.jwtRefreshExpiresIn ?? '',
-    });
-    return {
-      refreshToken,
-      refreshOptions: this.setCookieOption(maxAge, requestDomain, true),
-    };
-  }
-
-  setCookieOption(
-    maxAge: number,
-    requestDomain: string,
-    isHttpOnly = true,
-  ): CookieOptions {
-    let domain: string | undefined;
-    let isLocalhost = false;
-
-    if (
-      requestDomain.includes('127.0.0.1') ||
-      requestDomain.includes('localhost')
-    ) {
-      isLocalhost = true;
-      domain = undefined;
-    } else {
-      try {
-        const url = new URL(
-          requestDomain.startsWith('http') ? requestDomain : `https://${requestDomain}`,
-        );
-        this.logger.debug(`Setting cookie options for domain: ${requestDomain}`);
-        const parsedDomain = url.hostname.replace(/^www\./, '');
-        // 프론트 도메인과 서버 도메인이 다르면 domain 설정하지 않음
-        if (parsedDomain.endsWith('everyday-umo.site')) {
-          domain = '.everyday-umo.site';
-        }
-      } catch (e) {
-        this.logger.error(`Invalid requestDomain for URL parsing: ${requestDomain}. Falling back to hostname.`, e.stack);
-      }
-    }
-  
-    const cookieOptions: CookieOptions = {
-      path: '/',
-      httpOnly: isHttpOnly,
-      maxAge,
-      secure: !isLocalhost,         // 🔧 로컬에서는 false
-      sameSite: isLocalhost ? 'lax' : 'none', // 🔧 크로스도메인이 아니므로 'lax'로
-    };
-  
-    if (domain) {
-      cookieOptions.domain = domain;
-    }
-  
-    return cookieOptions;
-  }
-
   expireJwtToken(requestDomain: string) {
-    const accessOptions = this.setCookieOption(0, requestDomain, false);
-    const refreshOptions = this.setCookieOption(0, requestDomain, true);
-    return {
-      accessOptions,
-      refreshOptions,
-    };
+    return this.userTokenService.expireCookies(requestDomain);
   }
 }

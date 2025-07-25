@@ -11,6 +11,7 @@ import { AdminRolesGuard } from './guards/admin-role.guard';
 import { AdminLogService } from './logs/admin-log.service';
 import { AdminLog } from './logs/entities/admin-log.entity';
 import { AdminService } from './services/admin.service';
+import { AdminTokenService } from './services/admin.token.service';
 import { LoginAttemptService } from './services/login-attempt.service';
 import { AdminStatsController } from './stats/admin-stats.controller';
 import { AdminStatsService } from './stats/admin-stats.service';
@@ -30,7 +31,7 @@ import { AdminStatsService } from './stats/admin-stats.service';
     AppConfigModule,
   ],
   controllers: [AdminController, AdminStatsController],
-  providers: [AdminService, AdminRolesGuard, AdminLogService, AdminStatsService, LoginAttemptService],
+  providers: [AdminService, AdminRolesGuard, AdminLogService, AdminStatsService, LoginAttemptService, AdminTokenService],
   exports: [AdminService,LoginAttemptService],
 })
 export class AdminModule {}

@@ -1,4 +1,4 @@
-// src/umbrellas/dto/move-station.dto.ts
+// src/modules/umbrellas/dto/move-station.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber } from 'class-validator';
 

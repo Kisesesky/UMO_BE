@@ -3,8 +3,8 @@ import { PartialType } from '@nestjs/swagger';
 import { CreateUserDto } from './create-user.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsOptional, IsString, MinLength, MaxLength, Matches, IsNumber, Min, IsEnum } from 'class-validator';
-import { USER_ROLE_VALUES, UserRole } from 'src/common/constants/user-role';
-import { USER_STATUS_VALUES, UserStatus } from 'src/common/constants/user-status';
+import { USER_ROLE_VALUES, UserRole } from '../constants/user-role';
+import { USER_STATUS_VALUES, UserStatus } from '../constants/user-status';
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {
   @ApiProperty({ example: '김철수', description: '사용자 이름', required: false })

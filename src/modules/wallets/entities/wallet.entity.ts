@@ -1,10 +1,13 @@
 // src/modules/wallets/entities/wallet.entity.ts
-import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
-import { BaseEntity } from '../../../common/entities/base.entity';
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
+import { WalletLogs } from '../wallet-logs/entities/wallet-log.entity';
 
 @Entity('wallets')
-export class Wallet extends BaseEntity {
+export class Wallet {
+  @PrimaryGeneratedColumn()
+  id: number;
+  
   @Column({ type: 'int', default: 0, name: 'churu_balance' })
   churuBalance: number; // 츄르 잔액
 
@@ -19,4 +22,12 @@ export class Wallet extends BaseEntity {
   })
   @JoinColumn({ name: 'user_id' })
   user: User;
+
+  @OneToMany(() => WalletLogs, walletlogs => walletlogs.wallet, {
+     onDelete: 'CASCADE'
+  })
+  walletlogs: WalletLogs[];
+  
+  @CreateDateColumn()
+  createdAt: Date;
 }

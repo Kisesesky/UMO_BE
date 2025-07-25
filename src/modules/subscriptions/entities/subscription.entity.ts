@@ -3,7 +3,7 @@ import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from '../../../common/entities/base.entity';
 import { User } from '../../users/entities/user.entity';
 import { Product } from '../../products/entities/product.entity';
-import { SUBSCRIPTION_STATUS, SubscriptionStatus } from '../../../common/constants/subscription-status';
+import { SUBSCRIPTION_STATUS, SubscriptionStatus } from '../constants/subscription-status';
 
 @Entity('subscriptions')
 export class Subscription extends BaseEntity {

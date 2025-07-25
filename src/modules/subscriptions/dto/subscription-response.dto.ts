@@ -1,7 +1,7 @@
 // src/modules/subscriptions/dto/subscription-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { BaseResponseDto } from '../../../common/dto/base-response.dto';
-import { SUBSCRIPTION_STATUS } from '../../../common/constants/subscription-status';
+import { SUBSCRIPTION_STATUS } from '../constants/subscription-status';
 
 export class SubscriptionResponseDto extends BaseResponseDto {
   constructor(entity?: any) {

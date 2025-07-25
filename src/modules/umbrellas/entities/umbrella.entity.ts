@@ -1,5 +1,5 @@
-//./../../umbrellas/entities/umbrella.entity.ts
-import { UmbrellaStatus, UMBRELLA_STATUS } from "src/common/constants/umbrella-status";
+// src/modules/umbrellas/entities/umbrella.entity.ts
+import { UmbrellaStatus, UMBRELLA_STATUS } from "../constants/umbrella-status";
 import { BaseEntity } from 'src/common/entities/base.entity';
 import { Rental } from "src/modules/rentals/entities/rental.entity";
 import { Station } from "src/modules/stations/entities/station.entity";

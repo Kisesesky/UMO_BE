@@ -1,6 +1,6 @@
 // src/modules/notification/notification.service.ts
 import { Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
-import { NOTIFICATION_STATUS } from "src/common/constants/notification-status";
+import { NOTIFICATION_STATUS } from "./constants/notification-status";
 import { v4 as uuidv4 } from 'uuid';
 import { WeatherResponseDto } from '../weather/dto/weather-response.dto';
 import { WeatherService } from '../weather/services/weather.service';

@@ -30,6 +30,8 @@ import { GcsModule } from './modules/gcs/gcs.module';
 import { LocationsModule } from './modules/locations/locations.module';
 import * as winston from 'winston'
 import { InviteCodeModule } from './modules/invites/invite-code.module';
+import { ReferralsModule } from './modules/referrals/referrals.module';
+import { RewardsModule } from './modules/rewards/rewards.module';
 
 @Module({
   imports: [
@@ -66,6 +68,8 @@ import { InviteCodeModule } from './modules/invites/invite-code.module';
     GcsModule,
     LocationsModule,
     InviteCodeModule,
+    ReferralsModule,
+    RewardsModule,
   ],
   controllers: [AppController],
   providers: [

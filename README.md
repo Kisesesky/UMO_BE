@@ -77,107 +77,79 @@ UMO는 실시간 우산 대여 서비스로, 다음과 같은 주요 기능을 �
 ## 📁 프로젝트 구조
 
 ```
-.gemini                                          # gemini role
-  └── setting.json                               # setting.json
-.github                                          # github action
-└── workflows/
-  └── docker-publish.yml
-assets/                                          # img파일
-scripts                                          # Scripts파일
-  └── wait-for-it.sh                              
+.gemini                                         # gemini role
+  └── setting.json                              #   └── setting.json
+.github                                         # github action
+  └── workflows/                                #   └── workflows
+        └── docker-publish.yml                  #         └── docker-hub
+assets/                                         # img파일
+scripts                                         # Scripts파일
+  └── wait-for-it.sh                            #   └── migration rating scrits           
 src/
-├── common/                                      # 공통 컴포넌트
-│   ├── constants/                               # 상수 정의
-│   │   ├── admin-log-action-status.ts
-│   │   ├── admin-role.ts
-│   │   ├── notification-status.ts
-│   │   ├── order-status.ts
+├── common/                                     # 공통 컴포넌트
+│   ├── constants/                              # 상수 정의
 │   │   ├── region-mappings.ts
-│   │   ├── register-status.ts
-│   │   ├── rental-status.ts
-│   │   ├── subscription-status.ts
-│   │   ├── umbrella-status.ts
-│   │   ├── user-role.ts
-│   │   └── user-status.ts
-│   ├── decorators/                              # 커스텀 데코레이터
+│   │   └── register-status.ts
+│   ├── decorators/                             # 커스텀 데코레이터
 │   │   ├── public.decorator.ts
 │   │   ├── request-origin.decorator.ts
 │   │   ├── request-user.decorator.ts
 │   │   └── roles.decorator.ts
-│   ├── dto/                                     # 공통 DTO
+│   ├── dto/                                    # 공통 DTO
 │   │   ├── base-response.dto.ts
+│   │   ├── base-weather-response.dto.ts
 │   │   ├── error-response.dto.ts
 │   │   └── success-response.dto.ts
-│   ├── entities/                                # 공통 엔티티
+│   ├── entities/                               # 공통 엔티티
+│   │   ├── base-weather.entity.ts
 │   │   └── base.entity.ts
-│   ├── exceptions/                              # 예외 처리
-│   │   ├── admin.exceptions.ts
-│   │   ├── order.exceptions.ts
-│   │   ├── payment.exceptions.ts
-│   │   ├── rental.exceptions.ts
-│   │   ├── station.exceptions.ts
-│   │   ├── umbrella.exceptions.ts
-│   │   ├── user.exceptions.ts
-│   │   ├── wallet.exceptions.ts
-│   │   └── weather.exceptions.ts
-│   ├── filters/                                 # 필터
-│   │   └── all-exceptions.filter.ts
-│   ├── guards/                                  # 보안 가드
-│   │   └── roles.guard.ts
-│   ├── logs/                                    # logs
-│   │   ├── user.exceptions.ts
-│   │   └── wallet.exceptions.ts
-│   ├── messages/                                # 메시지 정의
-│   │   ├── admin-message.ts
-│   │   ├── order-message.ts
-│   │   ├── payment-message.ts
-│   │   ├── rental-message.ts
-│   │   ├── station-message.ts
-│   │   ├── umbrella-message.ts
-│   │   ├── user-message.ts
-│   │   ├── wallet-message.ts
-│   │   └── weather-message.ts
-│   ├── sentry/                                  # sentry
+│   ├── filters/                                # 필터
+│   │   └── all-exceptions.filter.ts            #   └── 전체 예외 전역 처리
+│   ├── guards/                                 # 보안 가드
+│   │   └── roles.guard.ts                      #   └── RoleGuard
+│   ├── logs/                                   # logs
+│   │   ├── audit-logger.service.ts             #   ├── audit.logger
+│   │   └── winston.config.ts                   #   └── Winston
+│   ├── sentry/                                 # sentry
 │   │   ├── sentry-util.ts
 │   │   └── sentry.config.ts
-│   ├── templates/                               # 이메일 템플릿
-│   │   ├── email-check-templates.ts
-│   │   └── email-code-templates.ts
-│   ├── types/                                   # 타입 정의
-│   │   ├── currency-types.ts
-│   │   └── product-types.ts
-│   ├── utils/                                   # 유틸리티
-│   │   ├── password-util.ts
-│   │   ├── request-util.ts
-│   │   └── time-util.ts
-│   └── validators/                              # 유효성 검사
-│       └── password-validator.ts
+│   ├── utils/                                  # 유틸리티
+│   │   ├── cookie-util.ts                      #   ├── Cookie Util
+│   │   ├── password-util.ts                    #   ├── Password Util
+│   │   ├── request-util.ts                     #   ├── Request Util
+│   │   └── time-util.ts                        #   └── Time Util
+│   └── validators/                             # 유효성 검사
+│       └── password-validator.ts               #   └── Password Validator
 │
-├── config/                                      # 환경 설정
-│   ├── app/                                     # 앱 설정
-│   ├── aws/                                     # AWS 설정
-│   ├── db/                                      # 데이터베이스 설정
-│   ├── portone/                                 # 결제 설정
-│   ├── redis/                                   # Redis 설정
-│   ├── social/                                  # 소셜 로그인 설정
-│   └── weather/                                 # 날씨 API 설정
+├── config/                                     # 환경 설정
+│   ├── app/                                    #   ├── 앱 설정
+│   ├── db/                                     #   ├── 데이터베이스 설정
+│   ├── gcs/                                    #   ├── GCS 설정
+│   ├── portone/                                #   ├── 결제 설정
+│   ├── redis/                                  #   ├── Redis 설정
+│   ├── social/                                 #   ├── 소셜 로그인 설정
+│   └── weather/                                #   └── 날씨 API 설정
 │
-├── database/                                    # 데이터베이스
-│   ├── migrations/                              # 마이그레이션
-│   └── data-source.ts       
+├── database/                                   # 데이터베이스
+│   ├── migrations/                             #   ├── 마이그레이션
+│   └── data-source.ts                          #   └── 데이터소스 설정
 │
-├── docs/                                        # 문서
-│   └── swagger/                                 # swagger
-│      └── swagger-spec.json       
+├── docs/                                       # 문서
+│   └── swagger/                                #   ├── swagger
+│      └── swagger-spec.json                    #   └── swagger.json
 │
-├── modules/                                     # 비즈니스 모듈
-│   ├── admin/                                   # 관리자 모듈
+├── modules/                                    
+│   ├── admin/                                  # 관리자 모듈
+│   │   ├── constants/
 │   │   ├── decorators/
 │   │   ├── dto/
 │   │   ├── entities/
+│   │   ├── exceptions/
 │   │   ├── guards/
 │   │   ├── logs/
+│   │   ├── messages/
 │   │   ├── notifications/
+│   │   ├── orders/
 │   │   ├── service/
 │   │   ├── stat/       
 │   │   ├── admin.controller.ts
@@ -189,7 +161,8 @@ src/
 │   │   ├── entities/
 │   │   ├── guards/
 │   │   ├── service/
-│   │   └── strategies/     
+│   │   ├── strategies/
+│   │   ├── templates/                          # 이메일 템플릿
 │   │   └── auth.module.ts       
 │   │
 │   ├── database/                               # DB 모듈
@@ -200,6 +173,15 @@ src/
 │   │   ├── gcs.module.ts
 │   │   └── gcs.service.ts       
 │   │     
+│   ├── invites/                                # 초대 모듈
+│   │   ├── config/
+│   │   ├── dto/
+│   │   ├── entities/
+│   │   ├── invite-code.controller.ts
+│   │   ├── invite-code.fcatory.ts
+│   │   ├── invite-code.module.ts
+│   │   └── invite-code.service.ts       
+│   │     
 │   ├── locations/                              # 위치 모듈
 │   │   ├── dto/
 │   │   ├── entities/
@@ -208,20 +190,26 @@ src/
 │   │   └── locations.service.ts       
 │   │     
 │   ├── notification/                           # 알림 모듈
+│   │   ├── constants/
 │   │   ├── dto/
 │   │   ├── notification.module.ts
-│   │   ├── adnotificationmin.scheduler.ts
+│   │   ├── notification.scheduler.ts
 │   │   └── notification.service.ts       
 │   │     
 │   ├── orders/                                 # 주문 모듈
+│   │   ├── constants/
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
+│   │   ├── exceptions/
+│   │   ├── messages/
 │   │   ├── orders.controller.ts
 │   │   ├── orders.module.ts
 │   │   └── orders.service.ts       
 │   │     
 │   ├── payments/                               # 결제 모듈
 │   │   ├── dto/     
+│   │   ├── exceptions/
+│   │   ├── messages/
 │   │   ├── payments.controller.ts
 │   │   ├── payments.module.ts
 │   │   └── payments.service.ts       
@@ -229,6 +217,7 @@ src/
 │   ├── products/                               # 상품 모듈
 │   │   ├── dto/
 │   │   ├── entities/
+│   │   ├── types/
 │   │   ├── products.controller.ts
 │   │   ├── products.module.ts
 │   │   └── products.service.ts 
@@ -236,12 +225,31 @@ src/
 │   ├── redis/                                  # Redis 모듈
 │   │   └── redis.module.ts       
 │   │
-│   ├── rentals/                                # 대여 모듈
+│   ├── referrals/                              # 보상 확인
+│   │   ├── constants/
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
+│   │   ├── referrals.controller.ts
+│   │   ├── referrals.module.ts
+│   │   └── referrals.service.ts 
+│   │
+│   ├── rentals/                                # 대여 모듈
+│   │   ├── constants/
+│   │   ├── dto/
+│   │   ├── entities/
+│   │   ├── exceptions/
+│   │   ├── messages/
 │   │   ├── rentals.controller.ts
 │   │   ├── rentals.module.ts
 │   │   └── rentals.service.ts 
+│   │
+│   ├── rewards/                                # 보상
+│   │   ├── constants/
+│   │   ├── dto/
+│   │   ├── entities/
+│   │   ├── rewards.controller.ts
+│   │   ├── rewards.module.ts
+│   │   └── rewards.service.ts 
 │   │
 │   ├── seed/                                   # 데이터 시딩
 │   │   ├── data/
@@ -251,20 +259,24 @@ src/
 │   ├── stations/                               # 스테이션 모듈
 │   │   ├── dto/
 │   │   ├── entities/
+│   │   ├── exceptions/
+│   │   ├── messages/
 │   │   ├── stations.controller.ts
 │   │   ├── stations.module.ts
 │   │   └── stations.service.ts 
 │   │
 │   ├── subscriptions/                          # 구독 모듈
+│   │   ├── constants/
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
 │   │   ├── subscriptions.controller.ts
 │   │   ├── subscriptions.module.ts
+│   │   ├── subscriptions.scheduler.ts
 │   │   └── subscriptions.service.ts 
 │   │
 │   ├── support/                                # 서포터 모듈
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
 │   │   ├── support.controller.ts
 │   │   ├── support.module.ts
 │   │   └── support.service.ts 
@@ -273,15 +285,21 @@ src/
 │   │   └── throttler.module.ts       
 │   │
 │   ├── umbrellas/                              # 우산 모듈
+│   │   ├── constants/
 │   │   ├── dto/
 │   │   ├── entities/
+│   │   ├── exceptions/
+│   │   ├── messages/
 │   │   ├── umbrellas.controller.ts
 │   │   ├── umbrellas.module.ts
 │   │   └── umbrellas.service.ts 
 │   │
 │   ├── users/                                  # 사용자 모듈
+│   │   ├── constants/
 │   │   ├── dto/
 │   │   ├── entities/
+│   │   ├── exceptions/
+│   │   ├── messages/
 │   │   ├── subscribers/
 │   │   ├── users.controller.ts
 │   │   ├── users.module.ts
@@ -289,7 +307,13 @@ src/
 │   │   
 │   ├── wallets/                                # 지갑 모듈
 │   │   ├── dto/
-│   │   └── entities/
+│   │   ├── entities/
+│   │   ├── exceptions/
+│   │   ├── messages/
+│   │   ├── types/
+│   │   ├── wallet-logs/
+│   │   │    ├── dto/
+│   │   │    └── entities/
 │   │   ├── wallets.controller.ts
 │   │   ├── wallets.module.ts
 │   │   └── wallets.service.ts 
@@ -297,8 +321,10 @@ src/
 │   ├── weather/                                # 날씨 모듈
 │   │   ├── dto/
 │   │   ├── entities/
+│   │   ├── exceptions/
 │   │   ├── interface/
 │   │   ├── mappers/
+│   │   ├── messages/
 │   │   ├── processors/
 │   │   ├── region/
 │   │   ├── service/

@@ -3,7 +3,7 @@ import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from '../../../common/entities/base.entity';
 import { User } from '../../users/entities/user.entity';
 import { Product } from '../../products/entities/product.entity';
-import { ORDER_STATUS, OrderStatus } from '../../../common/constants/order-status';
+import { ORDER_STATUS, OrderStatus } from '../constants/order-status';
 
 @Entity('orders')
 export class Order extends BaseEntity {

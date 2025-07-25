@@ -1,7 +1,7 @@
 // src/modules/orders/dto/order-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { BaseResponseDto } from '../../../common/dto/base-response.dto';
-import { ORDER_STATUS } from '../../../common/constants/order-status';
+import { ORDER_STATUS } from '../constants/order-status';
 
 export class OrderResponseDto extends BaseResponseDto {
   constructor(entity?: any) {

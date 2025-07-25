@@ -5,8 +5,8 @@ import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { PRODUCT_TYPE, ProductType } from '../../common/types/product-types';
-import { CURRENCY_TYPE,  CurrencyType } from '../../common/types/currency-types';
+import { PRODUCT_TYPE, ProductType } from './types/product-types';
+import { CURRENCY_TYPE,  CurrencyType } from './types/currency-types';
 
 
 @Injectable()

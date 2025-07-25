@@ -1,8 +1,8 @@
 // src/modules/products/dto/product-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { BaseResponseDto } from '../../../common/dto/base-response.dto';
-import { PRODUCT_TYPE, ProductType } from '../../../common/types/product-types';
-import { CURRENCY_TYPE, CurrencyType } from '../../../common/types/currency-types';
+import { PRODUCT_TYPE, ProductType } from '../types/product-types';
+import { CURRENCY_TYPE, CurrencyType } from '../types/currency-types';
 
 export class ProductResponseDto extends BaseResponseDto {
   constructor(entity?: any) {

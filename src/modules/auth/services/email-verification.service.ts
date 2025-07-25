@@ -2,7 +2,7 @@ import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import { Cache } from 'cache-manager';
 import * as nodemailer from 'nodemailer';
-import { getUmoVerificationCodeTemplate } from 'src/common/templates/email-code-templates';
+import { getUmoVerificationCodeTemplate } from 'src/modules/auth/templates/email-code-templates';
 import { AppConfigService } from 'src/config/app/config.service';
 
 type VerificationType = 'signup' | 'password';

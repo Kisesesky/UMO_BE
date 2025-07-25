@@ -1,5 +1,5 @@
 // src/modules/rentals/entities/rental.entity.ts
-import { RentalStatus, RENTAL_STATUS } from 'src/common/constants/rental-status';
+import { RentalStatus, RENTAL_STATUS } from '../constants/rental-status';
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 import { BaseEntity } from '../../../common/entities/base.entity';
 import { Umbrella } from '../../umbrellas/entities/umbrella.entity';

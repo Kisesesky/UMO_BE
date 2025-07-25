@@ -9,8 +9,8 @@ import { ErrorResponseDto } from '../../common/dto/error-response.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { RolesGuard } from '../../common/guards/roles.guard';
-import { PRODUCT_TYPE, ProductType } from '../../common/types/product-types';
-import { CURRENCY_TYPE, CurrencyType } from '../../common/types/currency-types';
+import { PRODUCT_TYPE, ProductType } from './types/product-types';
+import { CURRENCY_TYPE, CurrencyType } from './types/currency-types';
 import { USER_ROLE } from 'src/common/constants/user-role';
 
 @ApiTags('products')

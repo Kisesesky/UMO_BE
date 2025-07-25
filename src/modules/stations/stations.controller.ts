@@ -10,7 +10,7 @@ import { UmbrellaResponseDto } from 'src/modules/umbrellas/dto/umbrella-response
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/common/guards/roles.guard';
 import { Roles } from 'src/common/decorators/roles.decorator';
-import { USER_ROLE } from 'src/common/constants/user-role';
+import { USER_ROLE } from 'src/modules/users/constants/user-role';
 
 @ApiTags('stations')
 @Controller('stations')

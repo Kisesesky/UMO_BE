@@ -1,6 +1,6 @@
-// src/umbrellas/dto/umbrella-response.dto.ts
+// src/modules/umbrellas/dto/umbrella-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-import { UmbrellaStatus, UMBRELLA_STATUS, UMBRELLA_STATUS_VALUES } from 'src/common/constants/umbrella-status';
+import { UmbrellaStatus, UMBRELLA_STATUS, UMBRELLA_STATUS_VALUES } from '../constants/umbrella-status';
 import { Umbrella } from '../entities/umbrella.entity';
 import { BaseResponseDto } from 'src/common/dto/base-response.dto';
 

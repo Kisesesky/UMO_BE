@@ -1,8 +1,8 @@
 // src/users/dto/create-user.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { IsBoolean, IsEmail, IsEnum, IsNotEmpty, IsNumber, IsOptional, IsString, Matches, MaxLength, Min, MinLength } from 'class-validator';
-import { UserRole, USER_ROLE_VALUES } from 'src/common/constants/user-role';
-import { UserStatus, USER_STATUS_VALUES } from 'src/common/constants/user-status';
+import { UserRole, USER_ROLE_VALUES } from '../constants/user-role';
+import { UserStatus, USER_STATUS_VALUES } from '../constants/user-status';
 import { PasswordValidator } from 'src/common/validators/password-validator';
 
 export class CreateUserDto {

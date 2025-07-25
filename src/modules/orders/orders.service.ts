@@ -2,13 +2,13 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ORDER_STATUS } from '../../common/constants/order-status';
+import { ORDER_STATUS } from './constants/order-status';
 import {
   OrderAlreadyProcessedException,
   OrderCannotCancelException, OrderNotFoundException, RealMoneyPaymentException, UnsupportedCurrencyException
-} from '../../common/exceptions/order.exceptions';
-import { CURRENCY_TYPE } from '../../common/types/currency-types';
-import { PRODUCT_TYPE } from '../../common/types/product-types';
+} from './exceptions/order.exceptions';
+import { CURRENCY_TYPE } from '../products/types/currency-types';
+import { PRODUCT_TYPE } from '../products/types/product-types';
 import { ProductsService } from '../products/products.service';
 import { SubscriptionsService } from '../subscriptions/subscriptions.service';
 import { WalletsService } from '../wallets/wallets.service';

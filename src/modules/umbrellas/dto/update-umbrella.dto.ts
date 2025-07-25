@@ -1,8 +1,8 @@
-// src/umbrellas/dto/update-umbrella.dto.ts
+// src/modules/umbrellas/dto/update-umbrella.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEnum, IsNumber, IsOptional, IsString, Min } from 'class-validator';
-import { UmbrellaStatus } from 'src/common/constants/umbrella-status';
-import { UMBRELLA_STATUS_VALUES } from '../../../common/constants/umbrella-status';
+import { UmbrellaStatus } from '../constants/umbrella-status';
+import { UMBRELLA_STATUS_VALUES } from '../constants/umbrella-status';
 
 export class UpdateUmbrellaDto {
   @ApiProperty({ example: 'UM-001', description: '우산 코드', required: false })

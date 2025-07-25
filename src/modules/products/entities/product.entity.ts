@@ -1,8 +1,8 @@
 //src/modules/products/entities/product.entity.ts
 import { Entity, Column } from 'typeorm';
 import { BaseEntity } from '../../../common/entities/base.entity';
-import { PRODUCT_TYPE, ProductType } from '../../../common/types/product-types';
-import { CURRENCY_TYPE, CurrencyType } from '../../../common/types/currency-types';
+import { PRODUCT_TYPE, ProductType } from '../types/product-types';
+import { CURRENCY_TYPE, CurrencyType } from '../types/currency-types';
 
 
 @Entity('products')

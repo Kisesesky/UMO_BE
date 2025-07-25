@@ -1,5 +1,5 @@
 //src/modules/admin/entities/admin.entity.ts
-import { AdminRole, ADMIN_ROLE, ADMIN_ROLE_VALUES } from 'src/common/constants/admin-role';
+import { AdminRole, ADMIN_ROLE, ADMIN_ROLE_VALUES } from 'src/modules/admin/constants/admin-role';
 import { BaseEntity } from 'src/common/entities/base.entity';
 import { Column, Entity } from 'typeorm';
 

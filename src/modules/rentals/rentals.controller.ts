@@ -9,7 +9,7 @@ import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RequestUser } from 'src/common/decorators/request-user.decorator';
 import { UserResponseDto } from 'src/modules/users/dto/user-response.dto';
-import { USER_ROLE } from 'src/common/constants/user-role';
+import { USER_ROLE } from 'src/modules/users/constants/user-role';
 
 @ApiTags('rentals')
 @ApiExtraModels(RentalResponseDto, ErrorResponseDto)

@@ -1,4 +1,4 @@
-import { ADMIN_ROLE } from 'src/common/constants/admin-role';
+import { ADMIN_ROLE } from 'src/modules/admin/constants/admin-role';
 
 export const ADMINS_SEED_DATA = [
   {

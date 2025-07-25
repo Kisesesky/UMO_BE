@@ -1,23 +1,17 @@
 // src/modules/users/users.service.ts
 import { BadRequestException, Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { User } from './entities/user.entity';
-import { UserStatus, USER_STATUS } from 'src/common/constants/user-status';
 import { RegisterStatus } from 'src/common/constants/register-status';
-import { WalletsService } from 'src/modules/wallets/wallets.service';
-import {
-  UserNotFoundException,
-  UserEmailExistsException,
-  UserAccountStatusException,
-  UserInactiveException,
-  UserSuspendedException,
-  UserBannedException,
-  UserPendingVerificationException,
-} from 'src/common/exceptions/user.exceptions';
-import { USER_ROLE } from 'src/common/constants/user-role';
 import { PasswordUtil } from 'src/common/utils/password-util';
+import { WalletsService } from 'src/modules/wallets/wallets.service';
+import { Repository } from 'typeorm';
 import { InviteCodeService } from '../invites/invite-code.service';
+import { USER_ROLE } from './constants/user-role';
+import { UserStatus, USER_STATUS } from './constants/user-status';
+import { User } from './entities/user.entity';
+import {
+  UserBannedException, UserEmailExistsException, UserInactiveException, UserNotFoundException, UserPendingVerificationException, UserSuspendedException
+} from './exceptions/user.exceptions';
 
 @Injectable()
 export class UsersService {
@@ -104,13 +98,17 @@ export class UsersService {
   async remove(id: number): Promise<void> {
     const user = await this.findUserById(id);
     await this.walletsService.deactivateWallet(user.id);
-    await this.usersRepository.softDelete(id);
+    await this.usersRepository.remove(user);
   }
 
   async changePassword(email: string, currentPassword: string, newPassword: string, confirmPassword: string): Promise<string> {
     // 1. 유저 존재 확인
     const user = await this.findByEmail(email);
     if (!user) throw new UserNotFoundException();
+
+    if (!user.password) {
+      throw new UnauthorizedException('비밀번호가 설정되어 있지 않습니다.');
+    }
   
     // 2. 현재 비밀번호 일치 검증
     if (!(await PasswordUtil.compare(currentPassword, user.password))) {

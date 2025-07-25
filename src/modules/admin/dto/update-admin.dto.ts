@@ -1,7 +1,7 @@
 // src/modules/admin/dto/update-admin.dto.ts
 import { ApiPropertyOptional } from '@nestjs/swagger';
 import { IsBoolean, IsEmail, IsEnum, IsOptional, IsString, MinLength } from 'class-validator';
-import { AdminRole, ADMIN_ROLE_VALUES } from 'src/common/constants/admin-role';
+import { AdminRole, ADMIN_ROLE_VALUES } from 'src/modules/admin/constants/admin-role';
 import { PasswordValidator } from 'src/common/validators/password-validator';
 
 export class UpdateAdminDto extends PasswordValidator {

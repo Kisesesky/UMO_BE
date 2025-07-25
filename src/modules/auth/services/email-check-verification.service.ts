@@ -3,7 +3,7 @@ import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Inject, Injectable, InternalServerErrorException, Logger } from '@nestjs/common';
 import { Cache } from 'cache-manager';
 import * as nodemailer from 'nodemailer';
-import { getUmoVerificationLinkTemplate } from 'src/common/templates/email-check-templates';
+import { getUmoVerificationLinkTemplate } from 'src/modules/auth/templates/email-check-templates';
 import { AppConfigService } from 'src/config/app/config.service';
 import { v4 as uuidv4 } from 'uuid';
 

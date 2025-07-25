@@ -1,6 +1,6 @@
 // src/rentals/dto/rental-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-import { RentalStatus, RENTAL_STATUS, RENTAL_STATUS_VALUES } from 'src/common/constants/rental-status';
+import { RentalStatus, RENTAL_STATUS, RENTAL_STATUS_VALUES } from '../constants/rental-status';
 import { BaseResponseDto } from 'src/common/dto/base-response.dto';
 import { Rental } from '../entities/rental.entity';
 import { UserResponseDto } from '../../users/dto/user-response.dto';

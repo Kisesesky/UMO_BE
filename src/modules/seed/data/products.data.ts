@@ -1,6 +1,6 @@
 // src/modules/seed/data/products.data.ts
-import { PRODUCT_TYPE } from '../../../common/types/product-types';
-import { CURRENCY_TYPE } from '../../../common/types/currency-types';
+import { PRODUCT_TYPE } from '../../products/types/product-types';
+import { CURRENCY_TYPE } from '../../products/types/currency-types';
 
 export const PRODUCTS_SEED_DATA = [
   // --- 이용권 (PASS) (츄르결제) ---

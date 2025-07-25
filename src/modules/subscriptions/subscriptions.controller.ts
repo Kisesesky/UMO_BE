@@ -9,7 +9,7 @@ import { UserResponseDto } from '../../modules/users/dto/user-response.dto';
 import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
 import { RolesGuard } from 'src/common/guards/roles.guard';
 import { Roles } from 'src/common/decorators/roles.decorator';
-import { USER_ROLE } from 'src/common/constants/user-role';
+import { USER_ROLE } from 'src/modules/users/constants/user-role';
 
 @ApiTags('subscriptions')
 @Controller('subscriptions')

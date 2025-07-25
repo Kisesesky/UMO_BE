@@ -4,7 +4,7 @@ import { HttpService } from '@nestjs/axios';
 import { WeatherConfigService } from 'src/config/weather/config.service';
 import { firstValueFrom } from 'rxjs';
 import { MidtermForecastDto } from '../dto/midterm-forecast.dto';
-import { WeatherApiException } from 'src/common/exceptions/weather.exceptions';
+import { WeatherApiException } from '../exceptions/weather.exceptions';
 import { Cache } from 'cache-manager';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 

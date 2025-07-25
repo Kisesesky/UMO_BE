@@ -3,7 +3,7 @@ import { Injectable, Logger, NotFoundException, BadRequestException } from '@nes
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, LessThanOrEqual, MoreThanOrEqual } from 'typeorm';
 import { Subscription } from './entities/subscription.entity';
-import { SUBSCRIPTION_STATUS } from '../../common/constants/subscription-status';
+import { SUBSCRIPTION_STATUS } from './constants/subscription-status';
 
 @Injectable()
 export class SubscriptionsService {

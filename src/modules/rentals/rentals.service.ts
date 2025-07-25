@@ -6,10 +6,10 @@ import { Rental } from './entities/rental.entity';
 import { UsersService } from '../users/users.service';
 import { UmbrellasService } from '../umbrellas/umbrellas.service';
 import { WalletsService } from '../wallets/wallets.service';
-import { RENTAL_STATUS } from 'src/common/constants/rental-status';
-import { UMBRELLA_STATUS } from 'src/common/constants/umbrella-status';
-import { RentalMessages } from 'src/common/messages/rental-messages';
-import { RentalNotFoundException, RentalStatusException } from 'src/common/exceptions/rental.exceptions';
+import { RENTAL_STATUS } from './constants/rental-status';
+import { UMBRELLA_STATUS } from 'src/modules/umbrellas/constants/umbrella-status';
+import { RentalMessages } from './messages/rental-messages';
+import { RentalNotFoundException, RentalStatusException } from './exceptions/rental.exceptions';
 import { WebsocketService } from '../websocket/websocket.service';
 import { SubscriptionsService } from '../subscriptions/subscriptions.service';
 

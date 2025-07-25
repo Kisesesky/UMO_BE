@@ -14,7 +14,7 @@ import {
   MerchantUidMismatchException,
   AmountMismatchException,
   UnknownPaymentException,
-} from 'src/common/exceptions/payment.exceptions';
+} from 'src/modules/payments/exceptions/payment.exceptions';
 
 @Injectable()
 export class PaymentsService {

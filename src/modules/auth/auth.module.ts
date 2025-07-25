@@ -22,6 +22,7 @@ import { KakaoStrategy } from './strategies/kakao.strategy';
 import { NaverStrategy } from './strategies/naver.strategy';
 import { AdminModule } from '../admin/admin.module';
 import { GcsModule } from '../gcs/gcs.module';
+import { UserTokenService } from './services/user.token.service';
 
 @Module({
   imports: [
@@ -43,7 +44,14 @@ import { GcsModule } from '../gcs/gcs.module';
     }),
   ],
   controllers: [AuthController, AuthServiceController],
-  providers: [AuthService, JwtStrategy, GoogleStrategy, GoogleAuthGuard, KakaoStrategy, KakaoAuthGuard, NaverStrategy, NaverAuthGuard, EmailVerificationService, EmailCheckVerificationService, PasswordService],
+  providers: [
+    AuthService, 
+    JwtStrategy, 
+    GoogleStrategy, GoogleAuthGuard, 
+    KakaoStrategy, KakaoAuthGuard, 
+    NaverStrategy, NaverAuthGuard, 
+    EmailVerificationService, EmailCheckVerificationService, PasswordService, UserTokenService
+  ],
   exports: [AuthService],
 })
 export class AuthModule {}

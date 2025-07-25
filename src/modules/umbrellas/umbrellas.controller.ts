@@ -1,9 +1,9 @@
-// src/umbrellas/umbrellas.controller.ts
+// src/modules/umbrellas/umbrellas.controller.ts
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Query, UseGuards } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiQuery, ApiResponse, ApiTags, ApiBearerAuth } from '@nestjs/swagger';
-import { UmbrellaStatus, UMBRELLA_STATUS } from 'src/common/constants/umbrella-status';
+import { UmbrellaStatus, UMBRELLA_STATUS } from './constants/umbrella-status';
 import { ErrorResponseDto } from 'src/common/dto/error-response.dto';
-import { UMBRELLA_STATUS_VALUES } from '../../common/constants/umbrella-status';
+import { UMBRELLA_STATUS_VALUES } from './constants/umbrella-status';
 import { CreateUmbrellaDto } from './dto/create-umbrella.dto';
 import { UmbrellaResponseDto } from './dto/umbrella-response.dto';
 import { UpdateUmbrellaDto } from './dto/update-umbrella.dto';
@@ -13,7 +13,7 @@ import { MoveStationDto } from './dto/move-station.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/common/guards/roles.guard';
 import { Roles } from 'src/common/decorators/roles.decorator';
-import { USER_ROLE } from 'src/common/constants/user-role';
+import { USER_ROLE } from 'src/modules/users/constants/user-role';
 
 @ApiTags('umbrellas')
 @Controller('umbrellas')
