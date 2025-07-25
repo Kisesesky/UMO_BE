@@ -5,7 +5,7 @@ import { RewardType } from "../constants/reward-types";
 import { REWARD_TYPE } from './../constants/reward-types';
 
 @Entity('rewards')
-export class RewardEntity {
+export class Reward {
   @PrimaryGeneratedColumn()
   id: number;
 

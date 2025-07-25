@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException, UnauthorizedException, BadRequestException } from '@nestjs/common';
 import { EmailVerificationService } from './email-verification.service';
 import { PasswordUtil } from 'src/common/utils/password-util';
-import { UserNotFoundException } from 'src/common/exceptions/user.exceptions';
 import { UsersService } from 'src/modules/users/users.service';
+import { UserNotFoundException } from 'src/modules/users/exceptions/user.exceptions';
 
 @Injectable()
 export class PasswordService {

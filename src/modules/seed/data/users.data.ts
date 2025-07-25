@@ -1,6 +1,6 @@
 // src/modules/seed/data/users.data.ts
-import { USER_ROLE } from 'src/common/constants/user-role';
-import { USER_STATUS } from 'src/common/constants/user-status';
+import { USER_ROLE } from "src/modules/users/constants/user-role";
+import { USER_STATUS } from "src/modules/users/constants/user-status";
 
 export const USERS_SEED_DATA = [
   {

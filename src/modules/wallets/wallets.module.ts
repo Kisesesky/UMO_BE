@@ -7,7 +7,10 @@ import { Wallet } from './entities/wallet.entity';
 import { WalletLogs } from './wallet-logs/entities/wallet-log.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Wallet, WalletLogs])],
+  imports: [TypeOrmModule.forFeature([
+    Wallet, 
+    WalletLogs
+  ])],
   controllers: [WalletsController],
   providers: [WalletsService],
   exports: [WalletsService],

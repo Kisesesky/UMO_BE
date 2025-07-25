@@ -1,5 +1,5 @@
 // src/modules/websocket/dto/umbrella-update.dto.ts
-import { UMBRELLA_STATUS, UmbrellaStatus } from 'src/common/constants/umbrella-status';
+import { UmbrellaStatus } from "src/modules/umbrellas/constants/umbrella-status";
 
 export class UmbrellaUpdateDto {
   id: number;

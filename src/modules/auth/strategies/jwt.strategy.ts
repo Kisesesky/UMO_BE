@@ -3,7 +3,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
 import { UsersService } from '../../users/users.service';
-import { AppConfigService } from 'src/config/app/config.service'; // AppConfigService 임포트
+import { AppConfigService } from 'src/config/app/config.service';
 import { Request } from 'express';
 
 // 쿠키에서 JWT 추출하는 함수

@@ -1,5 +1,5 @@
 // src/modules/admin/logs/entities/admin-log.entity.ts
-import { AdminLogAction } from 'src/common/constants/admin-log-action-status';
+import { AdminLogAction } from '../../constants/admin-log-action-status';
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

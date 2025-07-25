@@ -1,6 +1,6 @@
 // src/modules/admin/logs/dto/admin-log-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-import { AdminLogAction, ADMIN_LOG_ACTION_VALUES } from 'src/common/constants/admin-log-action-status';
+import { AdminLogAction, ADMIN_LOG_ACTION_VALUES } from '../../constants/admin-log-action-status';
 import { AdminLog } from '../entities/admin-log.entity';
 
 export class AdminLogResponseDto {

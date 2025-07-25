@@ -1,8 +1,8 @@
 // src/modules/admin/dto/update-admin.dto.ts
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { IsBoolean, IsEmail, IsEnum, IsOptional, IsString, MinLength } from 'class-validator';
-import { AdminRole, ADMIN_ROLE_VALUES } from 'src/modules/admin/constants/admin-role';
+import { IsBoolean, IsEmail, IsEnum, IsOptional } from 'class-validator';
 import { PasswordValidator } from 'src/common/validators/password-validator';
+import { AdminRole, ADMIN_ROLE_VALUES } from 'src/modules/admin/constants/admin-role';
 
 export class UpdateAdminDto extends PasswordValidator {
   @ApiPropertyOptional({ example: 'admin@example.com', description: '관리자 이메일' })

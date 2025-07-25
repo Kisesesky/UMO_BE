@@ -1,11 +1,11 @@
 // src/modules/admin/orders/admin-orders.controller.ts
 import { Body, Controller, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
-import { USER_ROLE } from 'src/common/constants/user-role';
 import { Roles } from 'src/common/decorators/roles.decorator';
 import { JwtAuthGuard } from 'src/modules/auth/guards/jwt-auth.guard';
 import { OrdersService } from 'src/modules/admin/orders/orders.service';
 import { AdminRolesGuard } from '../guards/admin-role.guard';
 import { UpdateOrderDto } from './dto/update-order.dto';
+import { USER_ROLE } from 'src/modules/users/constants/user-role';
 
 // 예시: '/admin/orders'
 @Controller('admin/orders')

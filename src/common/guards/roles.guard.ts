@@ -1,7 +1,7 @@
 // src/common/guards/roles.guard.ts
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { UserRole } from '../constants/user-role';
+import { UserRole } from 'src/modules/users/constants/user-role';
 import { ROLES_KEY } from '../decorators/roles.decorator';
 
 @Injectable()

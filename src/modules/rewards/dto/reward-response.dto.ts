@@ -1,6 +1,6 @@
 // src/modules/rewards/dto/reward-response.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-import { RewardEntity } from '../entities/reward.entity';
+import { Reward } from '../entities/reward.entity';
 
 export class RewardResponseDto {
   @ApiProperty() 
@@ -18,7 +18,7 @@ export class RewardResponseDto {
   @ApiProperty() 
   createdAt: Date;
 
-  constructor(reward: RewardEntity) {
+  constructor(reward: Reward) {
     this.userId = reward.userId;
     this.rewardType = reward.rewardType;
     this.amount = reward.amount;

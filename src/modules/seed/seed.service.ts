@@ -4,16 +4,16 @@ import { DataSource } from 'typeorm';
 import { UsersService } from '../users/users.service';
 import { StationsService } from '../stations/stations.service';
 import { UmbrellasService } from '../umbrellas/umbrellas.service';
-import { ProductsService } from '../products/products.service'; // ProductsService 임포트
-import { WalletsService } from '../wallets/wallets.service'; // WalletsService 임포트
+import { ProductsService } from '../products/products.service';
+import { WalletsService } from '../wallets/wallets.service';
 import { USERS_SEED_DATA } from './data/users.data';
 import { STATIONS_SEED_DATA } from './data/stations.data';
 import { UMBRELLAS_SEED_DATA } from './data/umbrellas.data';
-import { PRODUCTS_SEED_DATA } from './data/products.data'; // PRODUCTS_SEED_DATA 임포트
+import { PRODUCTS_SEED_DATA } from './data/products.data';
 import { User } from '../users/entities/user.entity';
 import { Station } from '../stations/entities/station.entity';
 import { Umbrella } from '../umbrellas/entities/umbrella.entity';
-import { Product } from '../products/entities/product.entity'; // Product 엔티티 임포트
+import { Product } from '../products/entities/product.entity';
 import * as fs from 'fs';
 import * as path from 'path';
 import { ADMINS_SEED_DATA } from './data/admins.data';
@@ -29,8 +29,8 @@ export class SeedService implements OnModuleInit {
     private readonly usersService: UsersService,
     private readonly stationsService: StationsService,
     private readonly umbrellasService: UmbrellasService,
-    private readonly productsService: ProductsService, // ProductsService 주입
-    private readonly walletsService: WalletsService, // WalletsService 주입
+    private readonly productsService: ProductsService,
+    private readonly walletsService: WalletsService,
     private readonly adminsService: AdminService,
   ) {}
 

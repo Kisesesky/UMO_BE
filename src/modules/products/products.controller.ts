@@ -11,7 +11,7 @@ import { Roles } from '../../common/decorators/roles.decorator';
 import { RolesGuard } from '../../common/guards/roles.guard';
 import { PRODUCT_TYPE, ProductType } from './types/product-types';
 import { CURRENCY_TYPE, CurrencyType } from './types/currency-types';
-import { USER_ROLE } from 'src/common/constants/user-role';
+import { USER_ROLE } from 'src/modules/users/constants/user-role';
 
 @ApiTags('products')
 @Controller('products')

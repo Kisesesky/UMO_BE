@@ -2,19 +2,20 @@ import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/modules/users/entities/user.entity';
 import { DataSource, Repository } from 'typeorm';
-import { RewardEntity } from './entities/reward.entity';
+import { Reward } from './entities/reward.entity';
 import { REWARD_TYPE } from "./constants/reward-types";
 import { WalletsService } from '../wallets/wallets.service';
 import { WALLET_ACTION_TYPE } from '../wallets/types/action.type';
 import { WALLET_REF_TYPE } from '../wallets/types/ref.type';
 
 @Injectable()
-export class RewardService {
-  private readonly logger = new Logger(RewardService.name);
+export class RewardsService {
+  private readonly logger = new Logger(RewardsService.name);
   
   constructor(
-    @InjectRepository(RewardEntity)
-    private readonly rewardRepository: Repository<RewardEntity>,
+    @InjectRepository(Reward)
+    private readonly rewardRepository: Repository<Reward>,
+    @InjectRepository(User)
     private readonly userRepository: Repository<User>,
     private readonly dataSource: DataSource,
     private readonly walletsService: WalletsService,
@@ -51,14 +52,14 @@ export class RewardService {
     }
   
     await this.dataSource.transaction(async (manager) => {
-      const inviterReward = manager.create(RewardEntity, {
+      const inviterReward = manager.create(Reward, {
         userId: inviterId,
         rewardType: REWARD_TYPE.INVITE,
         amount: this.INVITER_REWARD_AMOUNT,
         reason: `invited_${inviteeId}`,
       });
   
-      const inviteeReward = manager.create(RewardEntity, {
+      const inviteeReward = manager.create(Reward, {
         userId: inviteeId,
         rewardType: REWARD_TYPE.INVITED,
         amount: this.INVITEE_REWARD_AMOUNT,
@@ -92,7 +93,7 @@ export class RewardService {
     this.logger.log(`리워드 지급 완료: ${inviterId} -> ${inviteeId}`);
   }
 
-  async getRewardsByUser(userId: number): Promise<RewardEntity[]> {
+  async getRewardsByUser(userId: number): Promise<Reward[]> {
     return this.rewardRepository.find({
       where: { userId },
       order: { createdAt: 'DESC' },

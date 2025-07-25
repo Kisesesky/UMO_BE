@@ -1,8 +1,8 @@
 // src/modules/admin/logs/admin-log.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AdminLogAction } from 'src/common/constants/admin-log-action-status';
 import { Repository } from 'typeorm';
+import { AdminLogAction } from '../constants/admin-log-action-status';
 import { AdminLogResponseDto } from './dto/admin-log-response.dto';
 import { AdminLog } from './entities/admin-log.entity';
 

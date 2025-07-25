@@ -4,7 +4,7 @@ import { HttpService } from '@nestjs/axios';
 import { WeatherConfigService } from 'src/config/weather/config.service';
 import { firstValueFrom } from 'rxjs';
 import { WeatherDataDto } from '../dto/weather-data.dto';
-import { WeatherApiException, WeatherNoDataException, CurrentWeatherFetchException } from 'src/common/exceptions/weather.exceptions';
+import { WeatherApiException, WeatherNoDataException, CurrentWeatherFetchException } from '../exceptions/weather.exceptions';
 
 @Injectable()
 export class CurrentWeatherService {
